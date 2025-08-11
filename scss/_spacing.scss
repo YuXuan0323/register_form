@@ -1,0 +1,24 @@
+//-------- margin-bottom_spacing --------
+@mixin bottom_spacing($bottom: 0) {
+    margin-bottom: $bottom;
+}
+
+.mb-4{
+    @include bottom_spacing(4px);
+}
+
+.mb-16{
+    @include bottom_spacing(16px);
+}
+
+//-------- padding-left_spacing --------
+@mixin left_spacing($left: 0) {
+    padding-left: $left;
+}
+.pl-24{
+    @include left_spacing(24px);
+}
+
+.pl-16{
+    @include left_spacing(16px);
+}

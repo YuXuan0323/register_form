@@ -1,0 +1,277 @@
+@import "_color.scss";
+@import "_font.scss";
+@import "_spacing.scss";
+
+
+//------------ label -------------------
+.label-box{
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 400;
+    height: 24px;
+    margin-bottom: 4px;
+}
+//------------ input -------------------
+.input-wrapper{
+    flex: 1;
+    .input-box {
+        position: relative;
+        input[type='text'],
+        input[type='email'],
+        input[type='password'],
+        input[type='number'],
+        input[type='tel'] {
+            border: 1px solid $gray-30;
+            appearance: none;
+            width: 100%;
+            height: 44px;
+            border-radius: 8px;
+            padding: 10px 16px;
+            color: $gray-90;
+            background-color: white;
+            cursor: pointer;
+    
+            &::placeholder {
+                color: $gray-40;
+            }
+    
+            &:hover {
+                background-color: $gray-10;
+            }
+
+            &:focus {
+                border: 1px solid $brand-50;
+                outline: none;
+                box-shadow: 0 0 0 4px rgba($brand-10, 0.2);
+            }
+    
+            &:disabled {
+                background-color: $gray-10;
+                color: $gray-50;
+                cursor: not-allowed;
+            }
+        }
+        &::after{
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 16px;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            pointer-events: none;
+            background: url("/img/icon-alert.svg") no-repeat center;
+            background-size: contain;
+            display: none;
+        }
+        &.error {
+            input {
+                border: 1px solid $red-30;
+                background-color: rgba($red-30, 0.05);
+            }
+            .input-icon {
+                display: block;
+            }
+        }
+    }
+}
+.error-message {
+    font-size: 14px;
+    margin-top: 4px;
+    color: $red-30;
+    display: none;
+    .input-box.error + & {
+        display: block;
+    }
+}
+//------------ checkbox -------------------
+.custom-checkbox {
+    position: relative;
+    display: flex;
+    align-items: center;
+    
+    input[type="checkbox"] {
+        opacity: 0;
+        position: absolute;
+    }
+
+    label {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        padding-left: 28px;
+        min-height: 20px;
+        color: $gray-90;
+        
+        &:before {
+            content: '';
+            position: absolute;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+            border: 1px solid $gray-60;
+            border-radius: 4px;
+            background-color: $form-background;
+            transition: all 0.2s ease;
+        }
+    }
+
+    // Checked
+    input[type="checkbox"]:checked + label {
+        &:before {
+            background-color: $brand-60;
+            border-color: $brand-60;
+        }
+        
+        &:after {
+            content: '';//可以換成SVG的圖
+            background: url(/img/check.svg) no-repeat center;
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            left: 4px;
+            top: 4px;
+            color: $form-background;
+            // font-size: 14px;//用圖的話文字大小,顏色就可以不用
+        }
+    }
+
+    // Hover 
+    input[type="checkbox"]:not(:checked) + label:hover:before {
+        border-color: #999;
+        background-color: #f5f5f5;
+    }
+
+    // Active 
+    input[type="checkbox"]:not(:checked):active + label:before {
+        border-color: #666;
+        background-color: #e8e8e8;
+    }
+
+    // Focus 
+    input[type="checkbox"]:focus + label:before {
+        box-shadow: 0 0 0 3px $brand-10;
+    }
+
+    //disable
+    // input[type="checkbox"]:focus + label:before {
+    //     box-shadow: 0 0 0 3px rgba(169, 7, 228, 0.3);
+    // }
+}
+//------------ checkbox -------------------
+// label{
+//     display: inline-block;
+//     font-size: 16px;
+//     font-weight: 400;
+//     height: 24px;
+//     margin-bottom: 4px;
+// }
+
+.checkbox-wrapper{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 4px;
+    input[type='checkbox'] {
+        width: 16px;
+        height: 16px;
+        accent-color: #58b11d;
+    }
+}
+
+.checkbox_conditional{
+    background-color: rgba(221, 232, 252, 0.3);
+    border: 1px solid $brand-20;
+    border-radius: 6px;
+    padding: 2px 6px 6px 2px;
+}
+
+  
+//------------ dropdown -------------------
+.dropdown-wrapper{
+    flex: 1;
+    .dropdown-box {
+        position: relative;
+        border: 1px solid $gray-30;
+        border-radius: 8px;
+        cursor: pointer;
+        background: white;
+        height: 44px;
+        &:hover {
+            background-color: $gray-10;
+        }
+        &:focus {
+            border: 1px solid $brand-50;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba($brand-10, 0.2);
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);//??
+            width: 20px;
+            height: 20px;
+            background: url("/img/arrow_down.svg") no-repeat center;
+            background-size: contain;
+            pointer-events: none;
+        }
+        .selected-option {
+            padding: 4px 12px;
+            color: $gray-40;
+            height: 44px;
+            display: flex;
+            align-items: center; 
+            &.filled {
+                color: $gray-90;
+            }
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 10;
+            width: 100%;
+            background: white;
+            border: 1px solid $gray-20;
+            border-radius: 8px;
+            margin-top: 4px;
+            padding: 4px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            li { 
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px 12px;
+                margin: 0 4px;
+                border-radius: 6px;
+                cursor: pointer;
+                .check-icon {
+                    display: none;
+                    font-size: 16px;
+                    margin-left: 8px;
+                    color: $brand-60;
+                }
+                &:hover {
+                    background: $background;
+                }
+                &.selected {
+                    background: $brand-10;
+                    color: $brand-60;
+                    .check-icon {
+                        display: inline;
+                    }
+                }
+                &[aria-disabled="true"] {
+                    color: $gray-20;
+                    pointer-events: none;
+                }
+            }
+        }
+        &.open .dropdown-menu {
+            display: block;
+        }
+    }    
+}

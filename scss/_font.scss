@@ -1,0 +1,135 @@
+//font family
+$font-family: 'Roboto', 'Noto Sans TC', sans-serif;
+
+// Font Weights
+$weight-regular: 400;
+$weight-semibold: 600;
+
+//------------ font size ------------
+// Headings
+$heading-1: 40px;
+$heading-2: 36px;
+$heading-3: 32px;
+$heading-4: 28px;
+$heading-5: 24px;
+
+// Titles
+$title-1: 24px;
+$title-2: 18px;
+$title-3: 16px;
+$title-4: 14px;
+
+// Body
+$body-1: 16px;
+$body-2: 14px;
+$body-3: 12px;
+
+//------------ line height ------------
+// Headings
+$heading-lineheight-1: 48px;
+$heading-lineheight-2: 40px;
+$heading-lineheight-3: 36px;
+$heading-lineheight-4: 32px;
+
+// Titles
+$title-lineheight-1: 36px;
+$title-lineheight-2: 24px;
+$title-lineheight-3: 24px;
+$title-lineheight-4: 20px;
+
+// Body
+$body-lineheight-1: 24px;
+$body-lineheight-2: 20px; 
+$body-lineheight-3: 16px;
+
+//------------ mixin ------------
+@mixin heading-1 {
+    font-family: $font-family;
+    font-weight: $weight-regular;     // 400
+    font-size: $heading-1;            // 40px
+    height: $heading-lineheight-1;    // 48px
+}
+
+@mixin heading-1-bold {
+    font-family: $font-family;
+    font-weight: $weight-semibold;    // 600
+    font-size: $heading-2;            // 36px
+    height: $heading-lineheight-2;    // 40px
+}
+
+@mixin heading-2 {
+    font-family: $font-family;
+    font-weight: $weight-regular;     // 400
+    font-size: $heading-3;            // 32px
+    height: $heading-lineheight-3;    // 36px
+}
+
+@mixin heading-2-bold {
+    font-family: $font-family;
+    font-weight: $weight-semibold;    // 600
+    font-size: $heading-4;            // 28px
+    height: $heading-lineheight-3;    // 36px
+}
+
+@mixin heading-3 {
+    font-family: $font-family;
+    font-weight: $weight-regular;     // 400
+    font-size: $heading-4;            // 28px
+    height: $heading-lineheight-4;    // 32px
+}
+
+@mixin heading-3-bold {
+    font-family: $font-family;
+    font-weight: $weight-semibold;    // 600
+    font-size: $heading-5;            // 24px
+    height: $heading-lineheight-5;    // 28px
+}
+
+@mixin title-1 {
+    font-family: $font-family;
+    font-weight: $weight-semibold;    // 600
+    font-size: $title-1;              // 24px
+    height: $title-lineheight-1;      // 36px
+}
+
+@mixin title-2 {
+    font-family: $font-family;
+    font-weight: $weight-semibold;    // 600
+    font-size: $title-2;              // 18px
+    height: $title-lineheight-2;      // 24px
+}
+
+@mixin title-3 {
+    font-family: $font-family;
+    font-weight: $weight-semibold;    // 600
+    font-size: $title-3;              // 16px
+    height: $title-lineheight-3;      // 24px
+}
+
+@mixin title-4 {
+    font-family: $font-family;
+    font-weight: $weight-semibold;    // 600
+    font-size: $title-4;              // 14px
+    height: $title-lineheight-4;      // 20px
+}
+
+@mixin body-1 {
+    font-family: $font-family;
+    font-weight: $weight-regular;     // 400
+    font-size: $body-1;               // 16px
+    // height: $body-lineheight-1;    // 24px
+}
+
+@mixin body-2 {
+    font-family: $font-family;
+    font-weight: $weight-regular;     // 400
+    font-size: $body-2;               // 14px
+    height: $body-lineheight-2;       // 20px
+}
+
+@mixin body-3 {
+    font-family: $font-family;
+    font-weight: $weight-regular;     // 400
+    font-size: $body-3;               // 12px
+    height: $body-lineheight-3;       // 16px
+}

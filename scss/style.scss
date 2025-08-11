@@ -1,0 +1,63 @@
+@import "_reset.scss";
+@import "_color.scss";
+@import "_font.scss";
+@import "_component.scss";
+@import "_spacing.scss";
+
+body{
+    background: radial-gradient(circle at 80% 50%, rgba($brand-30, $alpha: 0.7) 0%, transparent 70%),radial-gradient(circle at 10% 10%, rgba(white, $alpha: 0.4) 0%, transparent 70%);;
+    background-color: $background;
+}
+
+.cover_content{
+    max-width: 80%;
+    margin: 0 auto;
+    height: 55vh;
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    .sem_tag{
+        @include title-3;
+        width: fit-content;
+        background: rgba($brand-30, 0.3);
+        color: $brand-100;
+        padding: 4px 20px 4px 20px;
+        border-radius: 90px 99px 99px 20px;
+    }
+    .title{
+        @include heading-1-bold;
+        color: $gray-90;
+        .title_highlight{
+            color: $brand-60;
+        }
+    }
+    .cover_img{
+        background: transparent;
+    }
+}
+
+.form_container{
+    background:$form-background;
+    width: 80%;
+    margin: 0 auto;
+    height: auto;
+    border-radius: 20px;
+    align-items: center;
+    color: $gray-90;
+    padding: 40px;
+    .field_flex{
+        display: flex;
+        width: 100%;
+        gap: 4px;
+        height: auto;
+        .average_flex{
+            flex: 1;
+        }
+    }
+}
+
+.background_container{
+    height: 40px;
+    background: radial-gradient(circle at 80% 10%, rgba($brand-30, $alpha: 0.7) 0%, transparent 70%);
+}
