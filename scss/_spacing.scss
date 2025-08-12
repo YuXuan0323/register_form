@@ -11,6 +11,15 @@
     @include bottom_spacing(16px);
 }
 
+//-------- margin-right_spacing --------
+@mixin left_spacing($left: 0) {
+    margin-left: $left;
+}
+
+.ml-24{
+    @include left_spacing(24px);
+}
+
 //-------- padding-left_spacing --------
 @mixin left_spacing($left: 0) {
     padding-left: $left;

@@ -3,15 +3,15 @@
 @import "_spacing.scss";
 
 
-//------------ label -------------------
+//------------ Label -------------------
 .label-box{
     display: inline-block;
     font-size: 16px;
     font-weight: 400;
     height: 24px;
-    margin-bottom: 4px;
+    @include bottom_spacing(4px);
 }
-//------------ input -------------------
+//------------ Input -------------------
 .input-wrapper{
     flex: 1;
     .input-box {
@@ -32,19 +32,18 @@
             cursor: pointer;
     
             &::placeholder {
-                color: $gray-40;
+                color: $gray-30;
             }
-    
             &:hover {
-                background-color: $gray-10;
+                background-color: rgba($brand-10,0.2);
+                border-color: $brand-60;
             }
-
             &:focus {
                 border: 1px solid $brand-50;
                 outline: none;
-                box-shadow: 0 0 0 4px rgba($brand-10, 0.2);
+                box-shadow: 0 0 0 4px rgba($brand-10, 0.8);
+                background-color: $form-background;
             }
-    
             &:disabled {
                 background-color: $gray-10;
                 color: $gray-50;
@@ -84,11 +83,12 @@
         display: block;
     }
 }
-//------------ checkbox -------------------
+//------------ Checkbox -------------------
 .custom-checkbox {
     position: relative;
     display: flex;
     align-items: center;
+    @include bottom_spacing(4px);
     
     input[type="checkbox"] {
         opacity: 0;
@@ -102,14 +102,16 @@
         padding-left: 28px;
         min-height: 20px;
         color: $gray-90;
-        
+        &:hover{
+            color: $brand-60;
+        }
         &:before {
             content: '';
             position: absolute;
             left: 2px;
             width: 20px;
             height: 20px;
-            border: 1px solid $gray-60;
+            border: 1px solid $gray-30;
             border-radius: 4px;
             background-color: $form-background;
             transition: all 0.2s ease;
@@ -122,72 +124,188 @@
             background-color: $brand-60;
             border-color: $brand-60;
         }
-        
         &:after {
-            content: '';//可以換成SVG的圖
-            background: url(/img/check.svg) no-repeat center;
+            content: '';
+            background: url(/img/icon_checkbox.svg) no-repeat center;
             width: 16px;
             height: 16px;
             position: absolute;
             left: 4px;
             top: 4px;
             color: $form-background;
-            // font-size: 14px;//用圖的話文字大小,顏色就可以不用
         }
     }
 
-    // Hover 
-    input[type="checkbox"]:not(:checked) + label:hover:before {
-        border-color: #999;
-        background-color: #f5f5f5;
+    // Setting Label Color
+    input[type="checkbox"]:focus-visible + label,
+    input[type="checkbox"]:checked + label {
+        color: $brand-60;
     }
 
-    // Active 
+    // Checked Press
+    input[type="checkbox"]:checked:active + label:before {
+        background-color: $brand-80;
+        border-color: $brand-80;
+    }
+
+    // Hover
+    input[type="checkbox"]:not(:checked) + label:hover:before {
+        border-color: $brand-60;
+        background-color: rgba($brand-10,0.4);
+    }
+
+    // Active / Press
     input[type="checkbox"]:not(:checked):active + label:before {
-        border-color: #666;
-        background-color: #e8e8e8;
+        border-color: $brand-80;
+        background: $brand-80;
     }
 
     // Focus 
     input[type="checkbox"]:focus + label:before {
         box-shadow: 0 0 0 3px $brand-10;
     }
+    // Disable
+    input[type="checkbox"]:disabled + label {
+        cursor: not-allowed;
+        color: $gray-40;
+    }
 
-    //disable
-    // input[type="checkbox"]:focus + label:before {
-    //     box-shadow: 0 0 0 3px rgba(169, 7, 228, 0.3);
-    // }
-}
-//------------ checkbox -------------------
-// label{
-//     display: inline-block;
-//     font-size: 16px;
-//     font-weight: 400;
-//     height: 24px;
-//     margin-bottom: 4px;
-// }
-
-.checkbox-wrapper{
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    gap: 4px;
-    input[type='checkbox'] {
-        width: 16px;
-        height: 16px;
-        accent-color: #58b11d;
+    input[type="checkbox"]:disabled + label:before {
+        background-color: $gray-10;
+        border-color: $gray-30;
+    }
+      
+    input[type="checkbox"]:disabled + label:hover:before,
+    input[type="checkbox"]:disabled + label:active:before {
+        background-color: $gray-10;
+        border-color: $gray-30;
     }
 }
 
 .checkbox_conditional{
-    background-color: rgba(221, 232, 252, 0.3);
+    background-color: rgba($brand-10,0.2);
     border: 1px solid $brand-20;
     border-radius: 6px;
-    padding: 2px 6px 6px 2px;
+    padding: 6px;
+    @include bottom_spacing(4px);
+    display: none;
 }
 
-  
-//------------ dropdown -------------------
+.cond:has(input:checked) .checkbox_conditional {
+    display: block;
+}
+
+//------------ Radio -------------------
+.radio-wrapper{
+    flex: 1;
+    .radio-box {
+        position: relative;
+        display: flex;
+        align-items: center;
+        @include bottom_spacing(4px);
+    }
+}
+
+.custom-radio {
+    position: relative;
+    display: flex;
+    align-items: center;
+    @include bottom_spacing(4px);
+    
+    input[type="radio"] {
+        opacity: 0;
+        position: absolute;
+    }
+
+    label {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        padding-left: 28px;
+        min-height: 20px;
+        color: $gray-90;
+        &:hover{
+            color: $brand-60;
+        }
+        &:before {
+            content: '';
+            position: absolute;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+            border: 1px solid $gray-30;
+            border-radius: 50%;
+            background-color: $form-background;
+            transition: all 0.2s ease;
+        }
+    }
+
+     // Checked
+     input[type="radio"]:checked + label {
+        &:before {
+            background-color: $brand-60;
+            border-color: $brand-60;
+        }
+        &:after {
+            content: '';
+            background: url(/img/icon_radio-ellipse.svg) no-repeat center;
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: $form-background;
+        }
+    }
+
+    // Setting Label Color
+    input[type="radio"]:focus-visible + label,
+    input[type="radio"]:checked + label {
+        color: $brand-60;
+    }
+
+    // Hover
+    input[type="radio"]:not(:checked) + label:hover:before {
+        border-color: $brand-60;
+        background-color: rgba($brand-10,0.4);
+    }
+
+    // Focus 
+    input[type="radio"]:focus + label:before {
+        box-shadow: 0 0 0 3px $brand-10;
+    }
+    // Disable
+    input[type="radio"]:disabled + label {
+        cursor: not-allowed;
+        color: $gray-40;
+    }
+
+    input[type="radio"]:disabled + label:before {
+        background-color: $gray-10;
+        border-color: $gray-30;
+    }
+      
+    input[type="radio"]:disabled + label:hover:before,
+    input[type="radio"]:disabled + label:active:before {
+        background-color: $gray-10;
+        border-color: $gray-30;
+    }
+}
+
+.radio_conditional{
+    background-color: rgba($brand-10,0.2);
+    border: 1px solid $brand-20;
+    border-radius: 6px;
+    padding: 6px;
+    @include bottom_spacing(4px);
+    display: none;
+}
+
+.cond:has(input:checked) .radio_conditional {
+    display: block;
+}
+//------------ Dropdown -------------------
 .dropdown-wrapper{
     flex: 1;
     .dropdown-box {
@@ -198,28 +316,31 @@
         background: white;
         height: 44px;
         &:hover {
-            background-color: $gray-10;
+            background-color: rgba($brand-10,0.2);
+            border-color: $brand-60;
         }
         &:focus {
-            border: 1px solid $brand-50;
+            border: 1px solid $brand-60;
             outline: none;
-            box-shadow: 0 0 0 4px rgba($brand-10, 0.2);
+            box-shadow: 0 0 0 4px rgba($brand-10, 0.8);
+            background-color: $form-background;
         }
         &::after {
             content: "";
             position: absolute;
             right: 16px;
             top: 50%;
-            transform: translateY(-50%);//??
+            transform: translateY(-50%);
             width: 20px;
             height: 20px;
             background: url("/img/arrow_down.svg") no-repeat center;
             background-size: contain;
             pointer-events: none;
         }
+        // Placeholder
         .selected-option {
             padding: 4px 12px;
-            color: $gray-40;
+            color: $gray-30;
             height: 44px;
             display: flex;
             align-items: center; 
@@ -253,6 +374,9 @@
                     font-size: 16px;
                     margin-left: 8px;
                     color: $brand-60;
+                    width: 20px;
+                    height: 20px;
+                    background: url(/img/icon_check-opt.svg) repeat center;
                 }
                 &:hover {
                     background: $background;
@@ -275,3 +399,5 @@
         }
     }    
 }
+
+//------------ Button -------------------
