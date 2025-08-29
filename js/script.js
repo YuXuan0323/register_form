@@ -1,13 +1,13 @@
 //------------ input  -------------------
-const input = document.querySelector('#phone');
-input.addEventListener('input', (event) => {
-    let val = event.target.value.replace(/\D/g, '').slice(0, 10);
-    let formatted = val
-    .replace(/^(\d{4})(\d{0,3})(\d{0,3})$/, (match, g1, g2, g3) =>
-        [g1, g2, g3].filter(Boolean).join('-')
-    );
-    event.target.value = formatted;
-});
+// const input = document.querySelector('#phone');
+// input.addEventListener('input', (event) => {
+//     let val = event.target.value.replace(/\D/g, '').slice(0, 10);
+//     let formatted = val
+//     .replace(/^(\d{4})(\d{0,3})(\d{0,3})$/, (match, g1, g2, g3) =>
+//         [g1, g2, g3].filter(Boolean).join('-')
+//     );
+//     event.target.value = formatted;
+// });
 
 //------------ dropdown -------------------
 document.querySelectorAll('.dropdown-box').forEach(dropdown => {
@@ -32,10 +32,17 @@ document.querySelectorAll('.dropdown-box').forEach(dropdown => {
             dropdown.classList.remove('open');
         });
     });
-
     document.addEventListener('click', (e) => {
         if (!dropdown.contains(e.target)) {
             dropdown.classList.remove('open');
         }
     });
 });
+
+//------------ Process -------------------
+const percent = 30;
+const remaining = 2;
+const uploadItem = document.querySelector('.upload-item');
+
+uploadItem.querySelector('.process-fill').style.width = percent + '%';
+uploadItem.querySelector('.process-info').textContent = `剩餘 ${remaining} 分鐘・${percent}%`;

@@ -2,15 +2,35 @@
 @import "_font.scss";
 @import "_spacing.scss";
 
-
 //------------ Label -------------------
-.label-box{
+.label{
     display: inline-block;
     font-size: 16px;
     font-weight: 400;
     height: 24px;
     @include bottom_spacing(4px);
 }
+
+// ------------ Upload Label -------------------
+.label_wrapper{
+    .label_txt{
+        display: inline-block;
+        @include title-3;
+        @include bottom_spacing(4px);
+
+    }
+    .supportxt{
+        display: none;
+        @include title-4;
+    }
+    &[data-supportxt="true"]{
+        .supportxt{
+            color: $gray-60;
+            display: block;
+        }
+    }
+}
+
 //------------ Input -------------------
 .input-wrapper{
     flex: 1;
@@ -401,3 +421,197 @@
 }
 
 //------------ Button -------------------
+.btn_container{
+    width: 80%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin: 0 auto;
+    padding: 20px 40px;
+    .next_btn{
+        min-width: 220px;
+        height: 44px;
+        border-radius: 8px;
+        background: $brand-60;
+        padding: 8px 16px;
+        color: $form-background;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:hover{
+            background: $brand-70;
+        }
+        &:active{
+            background: $brand-80;
+        }
+        &:disabled{
+            background: $gray-20;
+            color: $gray-40;
+            cursor: not-allowed;
+        }
+    }
+}
+
+
+//------------ Tag -------------------
+.req_tag{
+    background: $gray-10;
+    color: $gray-70;
+    padding: 2px 8px;
+    margin-left: 4px;
+    border-radius: 99rem;
+    @include body-2;
+    &[data-check="true"] {
+        ::after{
+            background: url(/img/icon_check-opt.svg) no-repeat center;
+        }
+    }
+}
+
+//------------ Upload img -------------------
+.upload_flex{
+    display: flex;
+    width: 100%;
+    gap: 8px;
+    height: auto;
+    margin-bottom: 20px;
+}
+.upload_img{
+    background: url(/img/icon_upload_uploading.svg) no-repeat center;
+    display: inline-block;
+    min-width: 48px;
+    height: 48px;
+}
+
+.upload_info{
+    width: 100%;
+    .upload_label{
+        display: flex;
+        justify-content: space-between;
+        @include title-3;
+        color: $gray-90;
+        .remove-btn{
+            background: url(/img/icon_close.svg) no-repeat center;
+            width: 24px;
+            height: 24px;
+        }
+    }
+    .upload_status{
+        display: flex;
+        justify-content: space-between;
+        @include body-2;
+        color: $brand-50;
+    }
+}
+
+//------------ Progress -------------------
+.upload-item{
+    display: flex;
+    gap: 12px;
+    padding: 4px 0;
+    @include bottom_spacing(16px);
+
+    .file-thumb{
+        width: 48px;
+        height: 48px;
+        border-radius: 8px;
+    }
+    .file-status{
+        display: flex;
+        justify-content: space-between;
+        .status-text, .process-info{
+            @include body-2;
+            color: $gray-90;
+        }
+    }
+    
+    .progress{
+        height: 6px;
+        background: $brand-10;
+        border-radius: 999px;
+        overflow: hidden;
+        margin: 8px 0;
+        .bar{
+            display: block;
+            height: 100%;
+            background: $brand-60;
+            transition: width .25s;
+        }
+    }
+  
+    // Uploading
+    &[data-status="uploading"] {
+        .file-thumb{ 
+            background: url(/img/icon_upload_uploading.svg) center no-repeat;
+        }
+        .status-text{
+            color: $brand-60; 
+            &::before{ 
+                content: "上傳中";
+            }
+        }
+        .process-info{
+            color: $brand-60; 
+        }
+        .progress{
+            display: block;
+            .process-fill{
+                background: $brand-60;
+                border-radius: 999px;
+                width: 0%;
+                height: 6px;
+                transition: width 0.3s ease;
+            }
+        }
+    }
+
+    // Success
+    &[data-status="success"] {
+        .file-thumb{
+            background: url(/img/icon_upload_success.svg) center no-repeat;
+        }
+        .status-text{
+            color: $green-50; 
+            content:"上傳成功";
+        }
+        .progress {
+            display:none;
+        }
+    }
+  
+    &[data-status="error"] {
+        .file-thumb{
+            background: url(/icons/error.svg) center no-repeat;
+        }
+        .status-text{
+            color:$red-30;
+            content:"上傳失敗：檔案大小超過 10MB";
+        }
+        .progress{
+            display:none;
+        }
+    }
+  
+    &[data-status="idle"] {
+        .file-thumb{
+            background: url(/img/icon_upload_idle.svg) center no-repeat;
+        }
+        .upload_info{
+            display: flex;
+            align-items: center;
+            .file-name{
+                display: none;
+            }
+            .status-text{
+                color: $gray-50;
+                height: auto;
+                &::before{ 
+                    content: "尚未上傳資料";
+                }
+            }
+        }
+        .progress {
+            display:none;
+        }
+    }
+}

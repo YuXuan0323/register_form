@@ -18,19 +18,20 @@ body{
     justify-content: center;
     align-items: center;
     .sem_tag{
-        @include title-3;
+        @include heading-2-bold;
         width: fit-content;
         background: rgba($brand-30, 0.3);
+        height: 52px;
         color: $brand-100;
         padding: 4px 20px 4px 20px;
-        border-radius: 90px 99px 99px 20px;
+        border-radius: 99rem 99rem 99rem 20rem;
     }
     .title{
         @include heading-1-bold;
         color: $gray-90;
-        .title_highlight{
-            color: $brand-60;
-        }
+        // .title_highlight{
+        //     color: $brand-40;
+        // }
     }
     .cover_img{
         background: transparent;
