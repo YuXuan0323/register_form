@@ -39,10 +39,10 @@ document.querySelectorAll('.dropdown-box').forEach(dropdown => {
     });
 });
 
-//------------ Process -------------------
+//------------ progress -------------------
 const percent = 30;
 const remaining = 2;
-const uploadItem = document.querySelector('.upload-item');
+const uploadItem = document.querySelector('.upload-state');
 
-uploadItem.querySelector('.process-fill').style.width = percent + '%';
-uploadItem.querySelector('.process-info').textContent = `剩餘 ${remaining} 分鐘・${percent}%`;
+uploadItem.querySelector('.progress-fill').style.width = percent + '%';
+uploadItem.querySelector('.progress-info').textContent = `剩餘 ${remaining} 分鐘・${percent}%`;

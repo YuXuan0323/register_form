@@ -2,26 +2,25 @@
 @import "_font.scss";
 @import "_spacing.scss";
 
-//------------ Label -------------------
+//------------ Label | Normal Label -------------------
 .label{
     display: inline-block;
     font-size: 16px;
     font-weight: 400;
     height: 24px;
-    @include bottom_spacing(4px);
+    align-items: center;
+    // @include bottom_spacing(4px);
 }
-
-// ------------ Upload Label -------------------
+// ------------ Label | Upload Label -------------------
 .label_wrapper{
     .label_txt{
         display: inline-block;
         @include title-3;
         @include bottom_spacing(4px);
-
     }
     .supportxt{
         display: none;
-        @include title-4;
+        @include body-2;
     }
     &[data-supportxt="true"]{
         .supportxt{
@@ -260,8 +259,8 @@
         }
     }
 
-     // Checked
-     input[type="radio"]:checked + label {
+    // Checked
+    input[type="radio"]:checked + label {
         &:before {
             background-color: $brand-60;
             border-color: $brand-60;
@@ -420,16 +419,44 @@
     }    
 }
 
-//------------ Button -------------------
+//------------ Button | Upper & Next Step -------------------
 .btn_container{
     width: 80%;
     display: flex;
-    justify-content: right;
+    flex-direction: row-reverse;
+    justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-    padding: 20px 40px;
+    padding: 40px 40px;
+    .upper_btn{
+        // min-width: 220px;
+        flex: 1;
+        height: 44px;
+        border-radius: 8px;
+        background: $form-background;
+        padding: 8px 16px;
+        color: $gray-90;
+        border: 1px solid $brand-10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:hover{
+            background: $brand-30;
+        }
+        &:active{
+            background: $brand-80;
+        }
+        &:disabled{
+            background: $gray-20;
+            color: $gray-40;
+            cursor: not-allowed;
+        }
+
+    }
+
     .next_btn{
-        min-width: 220px;
+        // min-width: 220px;
+        flex: 1;
         height: 44px;
         border-radius: 8px;
         background: $brand-60;
@@ -451,128 +478,248 @@
         }
     }
 }
+//------------ Button | Uploading Button -------------------
+.btn-uploading-wrapper{
+    display: flex;   
+    justify-content: space-between;
+    align-items: center;
+    .btn-progress-cancel{
+        width: 8px;
+        height: 8px;
+        margin: 4px;
+        border-radius: 99px;
+
+        background: url(/img/icon_cancel.svg) no-repeat center/contain $gray-30;
+    }
+}
+
+
+//------------ Button | Uploading Error & Idle Button -------------------
+@mixin btn_normal($url){
+    min-width: 120px;
+    height: 40px;
+    border-radius: 99px;
+    padding: 8px 16px 8px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &::before{
+        content: "";
+        width: 16px;
+        height: 16px;
+        margin: 4px 8px 4px 0;
+        display: block;
+        background-color: currentColor;
+        -webkit-mask: url($url) no-repeat center;
+                mask: url($url) no-repeat center;
+    }
+}
+
+.btn-error-wrapper, .btn-idle-wrapper{
+    display: flex;
+    gap: 8px;
+    .btn-retry{
+        @include btn_normal("/img/arrow.clockwise.svg");
+        border: 1px solid $red-30;
+        color: $red-30;
+        &:hover {
+            background-color:  rgba($red-10, 0.5);
+        }
+        &:active {
+            background-color: $red-10;
+        }
+        &:disabled {
+            background-color: $gray-20;
+            color: $gray-40;
+            cursor: not-allowed;
+        }
+    }
+    .btn-upload{
+        @include btn_normal("/img/icon_upload.svg");
+        background: $brand-60;
+        color: $form-background;
+        &:hover {
+            background-color: $brand-70;
+        }
+        &:active {
+            background-color: $brand-80;
+        }
+        &:disabled {
+            background-color: $gray-20;
+            color: $gray-40;
+            cursor: not-allowed;
+        }
+    }
+}
+
+//------------ Button | Uploading Success Button -------------------
+@mixin btn_icon{
+    width: 40px;
+    height: 40px;
+    border-radius: 99px;
+    color: $gray-60;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+        background: $gray-20;
+        color: $gray-80;
+    }
+}
+
+@mixin icon_mask($url, $size: 16px) {
+    position: relative;
+    &::before {
+        content: "";
+        display: block;
+        width: $size;
+        height: $size;
+        background-color: currentColor;
+
+        -webkit-mask-image: url($url);
+                mask-image: url($url);
+        -webkit-mask-repeat: no-repeat;
+                mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+                mask-position: center;
+        -webkit-mask-size: $size $size;
+                mask-size: $size $size;
+    }
+}
+
+.btn-success-wrapper{
+    display: flex;
+    align-items: center;
+    .btn_success-review{
+        @include btn_icon;
+        @include icon_mask("/img/icon_review.svg");
+    }
+    
+    .btn_success-delete{
+        @include btn_icon;
+        @include icon_mask("/img/icon_delete.svg");
+    }
+    
+    .btn_success-upload{
+        @include btn_icon;
+        @include icon_mask("/img/icon_upload.svg");
+    }
+}
 
 
 //------------ Tag -------------------
 .req_tag{
     background: $gray-10;
     color: $gray-70;
-    padding: 2px 8px;
+    padding: 4px 8px;
     margin-left: 4px;
     border-radius: 99rem;
-    @include body-2;
+    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    font-weight: $weight-regular;     // 400
+    font-size: $body-2;   // 14 px
+    gap: 4px;
     &[data-check="true"] {
-        ::after{
-            background: url(/img/icon_check-opt.svg) no-repeat center;
+        background: $green-10;
+        color: $green-50;
+        &::before{
+            content: "";
+            width: 12px;
+            height: 12px;
+            background: url(/img/icon_checkmark.svg) no-repeat center/contain;
         }
     }
-}
-
-//------------ Upload img -------------------
-.upload_flex{
-    display: flex;
-    width: 100%;
-    gap: 8px;
-    height: auto;
-    margin-bottom: 20px;
-}
-.upload_img{
-    background: url(/img/icon_upload_uploading.svg) no-repeat center;
-    display: inline-block;
-    min-width: 48px;
-    height: 48px;
-}
-
-.upload_info{
-    width: 100%;
-    .upload_label{
-        display: flex;
-        justify-content: space-between;
-        @include title-3;
-        color: $gray-90;
-        .remove-btn{
-            background: url(/img/icon_close.svg) no-repeat center;
-            width: 24px;
-            height: 24px;
-        }
-    }
-    .upload_status{
-        display: flex;
-        justify-content: space-between;
-        @include body-2;
-        color: $brand-50;
+    &[data-check="alert"] {
+        background: $red-10;
+        color: $red-30;
     }
 }
 
-//------------ Progress -------------------
-.upload-item{
+//------------ Upload State -------------------
+.upload-state{
     display: flex;
     gap: 12px;
     padding: 4px 0;
     @include bottom_spacing(16px);
-
-    .file-thumb{
+    
+    .upload-img{
         width: 48px;
         height: 48px;
         border-radius: 8px;
+        flex-shrink: 0;
     }
-    .file-status{
+    .upload_test{
+        flex: 1;
+    }
+
+    .upload_info{
         display: flex;
         justify-content: space-between;
-        .status-text, .process-info{
-            @include body-2;
-            color: $gray-90;
+        flex: 1;
+        .file-title{
+            display: flex;
+            gap: 4px;
+            .file-size{
+                color: $gray-60;            }
         }
     }
     
     .progress{
         height: 6px;
         background: $brand-10;
-        border-radius: 999px;
+        border-radius: 99px;
         overflow: hidden;
         margin: 8px 0;
-        .bar{
-            display: block;
-            height: 100%;
-            background: $brand-60;
-            transition: width .25s;
-        }
+        flex: 1;
+
     }
   
     // Uploading
     &[data-status="uploading"] {
-        .file-thumb{ 
-            background: url(/img/icon_upload_uploading.svg) center no-repeat;
+        .upload-img{ 
+            background: url(/img/img_upload_uploading.svg) center no-repeat;
         }
-        .status-text{
+        .state-text{
             color: $brand-60; 
             &::before{ 
                 content: "上傳中";
             }
         }
-        .process-info{
-            color: $brand-60; 
+        .btn-uploading-wrapper{
+            .progress-info{
+                color: $brand-60; 
+            }
         }
         .progress{
             display: block;
-            .process-fill{
+            .progress-fill{
                 background: $brand-60;
-                border-radius: 999px;
+                border-radius: 99px;
                 width: 0%;
                 height: 6px;
                 transition: width 0.3s ease;
             }
         }
+        .btn-error-wrapper, .btn-success-wrapper,.btn-idle-wrapper{
+            display: none;
+        }
+        
     }
 
     // Success
     &[data-status="success"] {
-        .file-thumb{
-            background: url(/img/icon_upload_success.svg) center no-repeat;
+        .upload-img{
+            background: url(/img/img_upload_success.svg) center no-repeat;
         }
-        .status-text{
-            color: $green-50; 
-            content:"上傳成功";
+        .state-text{
+            color: $green-50;
+            &::before{ 
+                content: "上傳成功";
+            }
+        }
+        .btn-uploading-wrapper, .btn-error-wrapper,.btn-idle-wrapper{
+            display: none;
         }
         .progress {
             display:none;
@@ -580,12 +727,17 @@
     }
   
     &[data-status="error"] {
-        .file-thumb{
-            background: url(/icons/error.svg) center no-repeat;
+        .upload-img{
+            background: url(/img/img_upload_error.svg) center no-repeat;
         }
-        .status-text{
+        .state-text{
             color:$red-30;
-            content:"上傳失敗：檔案大小超過 10MB";
+            &::before{ 
+                content: "上傳失敗：檔案大小超過 10MB";
+            }
+        }
+        .btn-uploading-wrapper, .btn-success-wrapper,.btn-idle-wrapper{
+            display: none;
         }
         .progress{
             display:none;
@@ -593,16 +745,15 @@
     }
   
     &[data-status="idle"] {
-        .file-thumb{
-            background: url(/img/icon_upload_idle.svg) center no-repeat;
+        .upload-img{
+            background: url(/img/img_upload_idle.svg) center no-repeat;
         }
         .upload_info{
-            display: flex;
             align-items: center;
-            .file-name{
+            .file-size,.file-name{
                 display: none;
             }
-            .status-text{
+            .state-text{
                 color: $gray-50;
                 height: auto;
                 &::before{ 
@@ -610,8 +761,11 @@
                 }
             }
         }
-        .progress {
-            display:none;
+        .btn-uploading-wrapper, .btn-error-wrapper, .btn-success-wrapper{
+            display: none;
+        }
+        .progress{
+            display: none;
         }
     }
 }
