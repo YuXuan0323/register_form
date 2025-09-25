@@ -24,6 +24,7 @@
 @mixin left_spacing($left: 0) {
     padding-left: $left;
 }
+
 .pl-24{
     @include left_spacing(24px);
 }

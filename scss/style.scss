@@ -5,41 +5,101 @@
 @import "_spacing.scss";
 
 body{
-    background: radial-gradient(circle at 80% 50%, rgba($brand-30, $alpha: 0.7) 0%, transparent 70%),radial-gradient(circle at 10% 10%, rgba(white, $alpha: 0.4) 0%, transparent 70%);;
-    background-color: $background;
+    background: 
+        radial-gradient(circle at 80% 50%, rgba($brand-30, $alpha: 0.7) 0%, transparent 70%),
+        radial-gradient(circle at 10% 10%, rgba(white, $alpha: 0.4) 0%, transparent 70%),
+        url('/img/bg_subtitle.svg') no-repeat 80% 8% / 450px auto;
+        background-color: $background;
+    
+    @include lg{
+        background: 
+        radial-gradient(circle at 80% 50%, rgba($brand-30, $alpha: 0.7) 0%, transparent 70%),
+        radial-gradient(circle at 10% 10%, rgba(white, $alpha: 0.4) 0%, transparent 70%),
+        url('/img/bg_subtitle.svg') no-repeat 100% 5% / 350px auto;
+        background-color: $background;
+    }
+    @include sm{
+        background: 
+        radial-gradient(circle at 80% 40%, rgba($brand-30, $alpha: 0.7) 0%, transparent 70%),
+        radial-gradient(circle at 10% 10%, rgba(white, $alpha: 0.4) 0%, transparent 70%),
+        url('/img/bg_subtitle.svg') no-repeat 100% 12% / 200px auto;
+        background-color: $background;
+    }
 }
 
 .cover_content{
-    max-width: 80%;
+    width: calc(80% - 40px);
     margin: 0 auto;
-    height: 55vh;
+    height: 48vh;
     display: flex;
-    gap: 40px;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
-    .sem_tag{
-        @include heading-2-bold;
-        width: fit-content;
-        background: rgba($brand-30, 0.3);
-        height: 52px;
-        color: $brand-100;
-        padding: 4px 20px 4px 20px;
-        border-radius: 99rem 99rem 99rem 20rem;
+    position: relative;
+    .cover_title_wrapper {
+        width: 40%;
+        .sem_tag{
+            @include heading-2-bold;
+            width: fit-content;
+            background: rgba($brand-30, 0.3);
+            height: 52px;
+            color: $brand-100;
+            padding: 4px 20px 4px 20px;
+            border-radius: 99rem 99rem 99rem 20rem;
+        }
+        .title{
+            @include heading-1-bold;
+            color: $gray-90;
+        }
     }
-    .title{
-        @include heading-1-bold;
-        color: $gray-90;
-        // .title_highlight{
-        //     color: $brand-40;
-        // }
+    @include lg{
+        width: 90%;
+        height: 40vh;
+        .cover_title_wrapper{
+            width: 40%;
+            .sem_tag{
+                @include title-1;
+                height: 44px;
+            }
+            .title{
+                @include heading-2-bold;
+            }
+        }
+    }
+    @include sm{
+        max-width: 90%;
+        height: 30vh;
+        .cover_title_wrapper{
+            width: 50%;
+            .sem_tag{
+                @include title-3;
+                height: 32px;
+                padding: 4px 12px 4px 12px;
+            }
+            .title{
+                @include title-2;
+            }
+        }
     }
     .cover_img{
-        background: transparent;
+        position: absolute;
+        width: clamp(220px, 28vw, 420px);
+        height: 100%;
+        top: 10%;
+        right: 10%;
+        perspective: 1000px;
+        will-change: transform;
+        background: 
+            url('/img/cover_img_form.svg') no-repeat center / contain;
+        @include lg{
+            width: 40%;
+            top: 10%;
+            right: 0;
+        }
     }
 }
 
 .form_container{
-    background:$form-background;
+    background: $form-background;
     width: 80%;
     margin: 0 auto;
     height: auto;
@@ -52,9 +112,16 @@ body{
         width: 100%;
         gap: 4px;
         height: auto;
+        align-items: flex-end;
         .average_flex{
             flex: 1;
         }
+    }
+    @include lg {
+        width: 100%;
+    }
+    @include sm {
+        padding: 16px;
     }
 }
 

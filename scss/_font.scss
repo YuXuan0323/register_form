@@ -68,7 +68,7 @@ $body-lineheight-3: 16px;
     font-family: $font-family;
     font-weight: $weight-semibold;    // 600
     font-size: $heading-4;            // 28px
-    height: $heading-lineheight-3;    // 36px
+    // height: $heading-lineheight-3;    // 36px
 }
 
 @mixin heading-3 {
@@ -89,7 +89,7 @@ $body-lineheight-3: 16px;
     font-family: $font-family;
     font-weight: $weight-semibold;    // 600
     font-size: $title-1;              // 24px
-    height: $title-lineheight-1;      // 36px
+    // height: $title-lineheight-1;      // 36px
 }
 
 @mixin title-2 {
@@ -110,7 +110,7 @@ $body-lineheight-3: 16px;
     font-family: $font-family;
     font-weight: $weight-semibold;    // 600
     font-size: $title-4;              // 14px
-    height: $title-lineheight-4;      // 20px
+    //height: $title-lineheight-4;      // 20px
 }
 
 @mixin body-1 {
@@ -124,7 +124,7 @@ $body-lineheight-3: 16px;
     font-family: $font-family;
     font-weight: $weight-regular;     // 400
     font-size: $body-2;               // 14px
-    height: $body-lineheight-2;       // 20px
+    //height: $body-lineheight-2;       // 20px
 }
 
 @mixin body-3 {

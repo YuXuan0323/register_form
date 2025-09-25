@@ -8,12 +8,12 @@
 </head>
 <body>
     <section class="cover_content">
-        <div class="cover_title">
+        <div class="cover_title_wrapper">
             <div class="sem_tag">113學年度</div>
-            <div class="title">台灣入學<span class="title_highlight">學士班希望入學</span>招生</div>
+            <div class="title">台灣大學<span class="title_highlight">學士班希望入學</span>招生</div>
         </div>
         <div>
-            <img class="cover_img" src="/img/header_img.svg">
+            <div class="cover_img"></div>
         </div>
     </section>
     <!-- register form -->
@@ -22,6 +22,56 @@
             <div>
                 <span class="label">照片（近6個月2吋脫帽照片）</span>
                 <span class="req_tag" data-check="alert">必填</span>
+            </div>
+            <div class="upload-state" data-status="idle">
+                <div class="upload-img"></div>
+                <div class="upload_test">
+                    <div class="upload_info">
+                        <div>
+                            <div class="file-title">
+                                <div class="file-name">ID_5678.jpg</div>
+                                <span class="file-size">(24MB)</span>
+                            </div>
+                            <div class="state-text"></div>
+                        </div>
+                        <!-- uploading btn -->
+                        <div class="btn-uploading-wrapper">
+                            <button class="btn-progress-cancel"></button>
+                            <div class="progress-info"></div>
+                        </div>
+                        <!-- error btn -->
+                        <div class="btn-error-wrapper">
+                            <button class="btn-retry">
+                                <div>重試</div>
+                            </button>
+                            <button class="btn-upload">
+                                <div>上傳</div>
+                            </button>
+                        </div>
+                        <!-- success btn -->
+                        <div class="btn-success-wrapper">
+                            <button class="btn_success-review"></button>
+                            <button class="btn_success-delete"></button>
+                            <button class="btn_success-upload"></button>
+                        </div>
+                        <!-- idle btn -->
+                        <div class="btn-idle-wrapper">
+                            <button class="btn-upload">
+                                <div>上傳</div>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- progress -->
+                    <div class="progress">
+                        <div class="progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div>
+                <span class="label">目前為高三生在學證明</span>
+                <span class="req_tag">必填</span>
             </div>
             <div class="upload-state" data-status="uploading">
                 <div class="upload-img"></div>
@@ -42,10 +92,10 @@
                         <!-- error btn -->
                         <div class="btn-error-wrapper">
                             <button class="btn-retry">
-                                <span class="label">重試</span>
+                                <div>重試</div>
                             </button>
                             <button class="btn-upload">
-                                <span class="label">上傳</span>
+                                <div>上傳</div>
                             </button>
                         </div>
                         <!-- success btn -->
@@ -57,56 +107,7 @@
                         <!-- idle btn -->
                         <div class="btn-idle-wrapper">
                             <button class="btn-upload">
-                                <span class="label">上傳</span>
-                            </button>
-                        </div>
-                    </div>
-                    <!-- progress -->
-                    <div class="progress">
-                        <div class="progress-fill"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div>
-            <div>
-                <span class="label">目前為高三生在學證明</span>
-                <span class="req_tag">必填</span>
-            </div>
-             <div class="upload-state" data-status="uploading">
-                <div class="upload-img"></div>
-                <div class="upload_test">
-                    <div class="upload_info">
-                        <div>
-                            <div class="file-title">
-                                <div class="file-name">ID_5678.jpg</div>
-                                <span class="file-size">(24MB)</span>
-                            </div>
-                            <div class="state-text"></div>
-                        </div>
-                        <!-- uploading btn -->
-                        <div class="btn-uploading-wrapper">
-                            <div class="progress-info"></div>
-                        </div>
-                        <!-- error btn -->
-                        <div class="btn-error-wrapper">
-                            <button class="btn-retry">
-                                <span class="label">重試</span>
-                            </button>
-                            <button class="btn-upload">
-                                <span class="label">上傳</span>
-                            </button>
-                        </div>
-                        <!-- success btn -->
-                        <div class="btn-success-wrapper">
-                            <button class="btn_icon-review"></button>
-                            <button class="btn_icon-delete"></button>
-                            <button class="btn_icon-upload"></button>
-                        </div>
-                        <!-- idle btn -->
-                        <div class="btn-idle-wrapper">
-                            <button class="btn-upload">
-                                <span class="label">上傳</span>
+                                <div>上傳</div>
                             </button>
                         </div>
                     </div>
@@ -140,22 +141,22 @@
                         <!-- error btn -->
                         <div class="btn-error-wrapper">
                             <button class="btn-retry">
-                                <span class="label">重試</span>
+                                <div>重試</div>
                             </button>
                             <button class="btn-upload">
-                                <span class="label">上傳</span>
+                                <div>上傳</div>
                             </button>
                         </div>
                         <!-- success btn -->
                         <div class="btn-success-wrapper">
-                            <button class="btn_icon-review"></button>
-                            <button class="btn_icon-delete"></button>
-                            <button class="btn_icon-upload"></button>
+                            <button class="btn_success-review"></button>
+                            <button class="btn_success-delete"></button>
+                            <button class="btn_success-upload"></button>
                         </div>
                         <!-- idle btn -->
                         <div class="btn-idle-wrapper">
                             <button class="btn-upload">
-                                <span class="label">上傳</span>
+                                <div>上傳</div>
                             </button>
                         </div>
                     </div>
@@ -190,22 +191,22 @@
                         <!-- error btn -->
                         <div class="btn-error-wrapper">
                             <button class="btn-retry">
-                                <span class="label">重試</span>
+                                <div>重試</div>
                             </button>
                             <button class="btn-upload">
-                                <span class="label">上傳</span>
+                                <div>上傳</div>
                             </button>
                         </div>
                         <!-- success btn -->
                         <div class="btn-success-wrapper">
-                            <button class="btn_icon-review"></button>
-                            <button class="btn_icon-delete"></button>
-                            <button class="btn_icon-upload"></button>
+                            <button class="btn_success-review"></button>
+                            <button class="btn_success-delete"></button>
+                            <button class="btn_success-upload"></button>
                         </div>
                         <!-- idle btn -->
                         <div class="btn-idle-wrapper">
-                            <button class="btn-upload">
-                                <span class="label">上傳</span>
+                            <button class="btn-upload" disabled>
+                                <div>上傳</div>
                             </button>
                         </div>
                     </div>
@@ -218,7 +219,7 @@
         </div>
     </section>
     <section class="btn_container">
-        <button class="next_btn" onclick="location.href='/form-step2-upload.html'">下一頁</button>
+        <button class="next_btn" onclick="location.href='/form-step3-confirm.html'">下一頁</button>
         <button class="upper_btn" onclick="location.href='/index.html'">上一頁</button>
     </section>
     <a href="/index.html"></a>

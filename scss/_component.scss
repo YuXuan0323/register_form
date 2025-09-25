@@ -2,14 +2,30 @@
 @import "_font.scss";
 @import "_spacing.scss";
 
+//------------ Breakpoint -------------------
+$sm: 600px;
+$lg: 1024px;
+
+@mixin sm {
+    @media (max-width: $sm){
+        @content;
+    }
+}
+
+@mixin lg {
+    @media (max-width: $lg){
+        @content;
+    }
+}
+
 //------------ Label | Normal Label -------------------
 .label{
     display: inline-block;
-    font-size: 16px;
-    font-weight: 400;
-    height: 24px;
     align-items: center;
-    // @include bottom_spacing(4px);
+    @include title-3;
+    @include sm {
+        @include body-2;
+    }
 }
 // ------------ Label | Upload Label -------------------
 .label_wrapper{
@@ -29,7 +45,23 @@
         }
     }
 }
-
+// ------------ Label | Confirm Label -------------------
+.confirm_label_wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px 0;
+    .confirm_label{
+        @include body-2;
+        align-items: center;
+        color: $gray-60;;
+    }
+    &[data-edit="true"]{
+        .edit_btn{
+            display: block;
+        }
+    }
+}    
 //------------ Input -------------------
 .input-wrapper{
     flex: 1;
@@ -45,11 +77,10 @@
             width: 100%;
             height: 44px;
             border-radius: 8px;
-            padding: 10px 16px;
+            padding:4px 12px;
             color: $gray-90;
             background-color: white;
             cursor: pointer;
-    
             &::placeholder {
                 color: $gray-30;
             }
@@ -62,11 +93,6 @@
                 outline: none;
                 box-shadow: 0 0 0 4px rgba($brand-10, 0.8);
                 background-color: $form-background;
-            }
-            &:disabled {
-                background-color: $gray-10;
-                color: $gray-50;
-                cursor: not-allowed;
             }
         }
         &::after{
@@ -92,6 +118,29 @@
             }
         }
     }
+    @include sm {
+        @include body-2;
+        .input-box {
+            height: 40px;
+            input[type='text'],
+            input[type='email'],
+            input[type='password'],
+            input[type='number'],
+            input[type='tel'] {
+                height: 40px;
+            }
+        }
+    }
+}
+
+#contact-address[data-disabled="true"] {
+    .input-box input:disabled {
+        background-color: $gray-10;
+        color: $gray-50;
+        cursor: not-allowed;
+        border-color: $gray-30;
+        box-shadow: none;
+    }
 }
 .error-message {
     font-size: 14px;
@@ -108,7 +157,9 @@
     display: flex;
     align-items: center;
     @include bottom_spacing(4px);
-    
+    @include sm {
+        @include body-2;
+    }
     input[type="checkbox"] {
         opacity: 0;
         position: absolute;
@@ -204,10 +255,22 @@
 .checkbox_conditional{
     background-color: rgba($brand-10,0.2);
     border: 1px solid $brand-20;
-    border-radius: 6px;
+    border-radius: 8px;
     padding: 6px;
-    @include bottom_spacing(4px);
     display: none;
+    .conditional_flex{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        gap: 4px;
+        height: auto;
+        align-items: flex-end;
+        @include sm{
+            flex-direction: column;
+            align-items: stretch;
+            width: 100%;
+        }
+    }
 }
 
 .cond:has(input:checked) .checkbox_conditional {
@@ -256,6 +319,9 @@
             border-radius: 50%;
             background-color: $form-background;
             transition: all 0.2s ease;
+        }
+        @include sm {
+            @include body-2;
         }
     }
 
@@ -416,9 +482,23 @@
         &.open .dropdown-menu {
             display: block;
         }
+        @include sm {
+            @include body-2;
+            height: 40px;
+            .selected-option {
+                height: 40px;
+            }
+        }
     }    
 }
-
+#contact-address[data-disabled="true"] {
+    .dropdown-box {
+        pointer-events: none;  // 不能再點
+        cursor: not-allowed;
+        background: $gray-10;
+        border-color: $gray-30;
+    }
+}
 //------------ Button | Upper & Next Step -------------------
 .btn_container{
     width: 80%;
@@ -427,9 +507,19 @@
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-    padding: 40px 40px;
+    padding: 20px 40px 32px 40px;
+    @include lg{
+        width: 100%;
+    }
+    
+    @include sm{
+        width: 100%;
+        padding: 20px 0 32px 0;
+        gap: 12px;
+    }
+
     .upper_btn{
-        // min-width: 220px;
+        max-width: 200px;
         flex: 1;
         height: 44px;
         border-radius: 8px;
@@ -441,21 +531,21 @@
         align-items: center;
         justify-content: center;
         &:hover{
-            background: $brand-30;
+            background: rgba($brand-10, 0.5);
+            border: 1px solid $brand-30;
         }
         &:active{
-            background: $brand-80;
+            background: rgba($brand-20, 0.5);
         }
         &:disabled{
             background: $gray-20;
             color: $gray-40;
             cursor: not-allowed;
         }
-
     }
 
     .next_btn{
-        // min-width: 220px;
+        max-width: 200px;
         flex: 1;
         height: 44px;
         border-radius: 8px;
@@ -484,18 +574,28 @@
     justify-content: space-between;
     align-items: center;
     .btn-progress-cancel{
-        width: 8px;
-        height: 8px;
-        margin: 4px;
+        position: relative;
+        width: 24px;
+        height: 24px;
         border-radius: 99px;
-
-        background: url(/img/icon_cancel.svg) no-repeat center/contain $gray-30;
+        background-color: $gray-10;
+        &::after{
+            content: " ";
+            position: absolute;
+            right: 7px;
+            top: 8px;
+            width: 10px;
+            height: 10px;
+            background: url(/img/icon_cancel.svg) no-repeat center/contain;
+        }
+        &:hover {
+            background-color: $gray-20;
+        }
     }
 }
 
-
 //------------ Button | Uploading Error & Idle Button -------------------
-@mixin btn_normal($url){
+@mixin btn_normal_withicon($url){
     min-width: 120px;
     height: 40px;
     border-radius: 99px;
@@ -503,6 +603,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    @include body-1;
     &::before{
         content: "";
         width: 16px;
@@ -513,13 +614,27 @@
         -webkit-mask: url($url) no-repeat center;
                 mask: url($url) no-repeat center;
     }
+    @include sm {
+        @include body-2;
+        min-width: 80px;
+        height: 36px;
+        padding: 8px 16px;
+        &::before{
+            width: 0px;
+            height: 0px;
+            margin: 0;
+            -webkit-mask: url() no-repeat center;
+                    mask: url() no-repeat center;
+        }
+    }
 }
 
 .btn-error-wrapper, .btn-idle-wrapper{
     display: flex;
+    align-items: center;
     gap: 8px;
     .btn-retry{
-        @include btn_normal("/img/arrow.clockwise.svg");
+        @include btn_normal_withicon("/img/arrow.clockwise.svg");
         border: 1px solid $red-30;
         color: $red-30;
         &:hover {
@@ -535,7 +650,7 @@
         }
     }
     .btn-upload{
-        @include btn_normal("/img/icon_upload.svg");
+        @include btn_normal_withicon("/img/icon_upload.svg");
         background: $brand-60;
         color: $form-background;
         &:hover {
@@ -606,18 +721,57 @@
     }
 }
 
+//------------ Button | Confirm Edit Button ------------
+@mixin btn_normal{
+    min-width: 80px;
+    height: 36px;
+    border-radius: 99px;
+    padding: 6px 16px;
+    margin-left: 4px;
+    align-items: center;
+    justify-content: center;
+    @include sm{
+        @include body-2;
+        height: 36px;
+        padding: 8px 16px;
+    }
+    @include lg {
+        @include body-2;
+        height: 36px;
+    }
+}
+
+.edit_btn{
+    @include btn_normal;
+    border: 1px solid $gray-30;
+    background: $form-background;
+    color: $gray-90;
+    display: none;
+    &:hover {
+        background-color:  $gray-10;
+    }
+    &:active {
+        background-color: $gray-20;
+    }
+    &:disabled {
+        background: $form-background;
+        color: $gray-30;
+        border: 1px solid $gray-30;
+        cursor: not-allowed;
+    }
+}
 
 //------------ Tag -------------------
 .req_tag{
     background: $gray-10;
     color: $gray-70;
-    padding: 4px 8px;
+    padding: 2px 8px;
     margin-left: 4px;
     border-radius: 99rem;
     width: fit-content;
     display: inline-flex;
     align-items: center;
-    font-weight: $weight-regular;     // 400
+    font-weight: $weight-regular;   // 400
     font-size: $body-2;   // 14 px
     gap: 4px;
     &[data-check="true"] {
@@ -625,8 +779,8 @@
         color: $green-50;
         &::before{
             content: "";
-            width: 12px;
-            height: 12px;
+            width: 10px;
+            height: 10px;
             background: url(/img/icon_checkmark.svg) no-repeat center/contain;
         }
     }
@@ -652,16 +806,26 @@
     .upload_test{
         flex: 1;
     }
-
     .upload_info{
         display: flex;
         justify-content: space-between;
-        flex: 1;
+        gap: 4px;
         .file-title{
             display: flex;
+            flex-wrap: wrap;
+            align-items: end;
             gap: 4px;
+            .file-name{
+                @include body-1;
+                color: $gray-80;
+            }
             .file-size{
-                color: $gray-60;            }
+                @include body-2;
+                color: $gray-80;            
+            }
+        }
+        .state-text{
+            @include title-4;
         }
     }
     
@@ -672,10 +836,9 @@
         overflow: hidden;
         margin: 8px 0;
         flex: 1;
-
     }
   
-    // Uploading
+    // Uploading State
     &[data-status="uploading"] {
         .upload-img{ 
             background: url(/img/img_upload_uploading.svg) center no-repeat;
@@ -707,7 +870,7 @@
         
     }
 
-    // Success
+    // Success State
     &[data-status="success"] {
         .upload-img{
             background: url(/img/img_upload_success.svg) center no-repeat;
@@ -725,7 +888,7 @@
             display:none;
         }
     }
-  
+    // Error State
     &[data-status="error"] {
         .upload-img{
             background: url(/img/img_upload_error.svg) center no-repeat;
@@ -743,15 +906,17 @@
             display:none;
         }
     }
-  
+    // Idle State
     &[data-status="idle"] {
         .upload-img{
             background: url(/img/img_upload_idle.svg) center no-repeat;
         }
         .upload_info{
             align-items: center;
-            .file-size,.file-name{
+            .file-size, .file-name{
                 display: none;
+                @include title-3;
+                color: $gray-70;
             }
             .state-text{
                 color: $gray-50;
@@ -766,6 +931,17 @@
         }
         .progress{
             display: none;
+        }
+    }
+    @include sm{
+        gap: 8px;
+        .upload-img{
+            width: 36px;
+            height: 36px;
+        }
+        .file-name{
+            @include title-4;
+            color: $gray-80;
         }
     }
 }

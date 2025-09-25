@@ -10,12 +10,12 @@
 
 <body>
     <section class="cover_content">
-        <div class="cover_title">
+        <div class="cover_title_wrapper">
             <div class="sem_tag">113學年度</div>
-            <div class="title">台灣入學<span class="title_highlight">學士班希望入學</span>招生</div>
+            <div class="title">台灣大學<span class="title_highlight">學士班希望入學</span>招生</div>
         </div>
         <div>
-            <img class="cover_img" src="/img/header_img.svg">
+            <div class="cover_img"></div>
         </div>
     </section>
     <!-- register form -->
@@ -147,7 +147,7 @@
                 <p class="error-message">{不可包含特殊符號（例如：#、%、& 等）}</p>
             </div>
         </div>
-        <div class="mb-16">
+        <div id='contact-address' class="mb-16" data-disabled="ture">
             <div class="field_flex">
                 <span class="label">通訊地址</span>
                 <div class="custom-checkbox">
@@ -189,6 +189,8 @@
                 </div>
                 <p class="error-message">{不可包含特殊符號（例如：#、%、& 等）}</p>
             </div>
+        </div>
+        <div class="mb-16">
             <span class="label">報名資格</span>
             <div class="cond">
                 <div class="custom-checkbox">
@@ -196,7 +198,7 @@
                     <label for="opt-lowincome">近三年為低/中低收入戶</label>
                 </div>
                 <div class="checkbox_conditional ml-24">
-                    <div class="field_flex mb-4">
+                    <div class="conditional_flex">
                         <div class="dropdown-wrapper">
                             <span class="label">110年</span>
                             <div class="dropdown-box" tabindex="0">
@@ -212,7 +214,7 @@
                             </div>
                         </div>
                         <div class="dropdown-wrapper">
-                            <span class="label">國籍</span>
+                            <span class="label">111年</span>
                             <div class="dropdown-box" tabindex="0">
                                 <div class="selected-option">請選擇國籍</div>
                                 <ul class="dropdown-menu">
@@ -226,7 +228,7 @@
                             </div>
                         </div>
                         <div class="dropdown-wrapper">
-                            <span class="label">國籍</span>
+                            <span class="label">112年</span>
                             <div class="dropdown-box" tabindex="0">
                                 <div class="selected-option">請選擇國籍</div>
                                 <ul class="dropdown-menu">
@@ -245,7 +247,7 @@
             <!-- 特殊境遇 -->
             <div>
                 <div class="custom-checkbox">
-                    <input type="checkbox" id="opt-special" disabled>
+                    <input type="checkbox" id="opt-special">
                     <label for="opt-special">特殊境遇</label>
                 </div>
             </div>
@@ -256,7 +258,7 @@
                     <label for="opt-newcomer">新住民</label>
                 </div>
                 <div class="checkbox_conditional ml-24">
-                    <div class="field_flex mb-4">
+                    <div class="conditional_flex mb-4">
                         <div class="input-wrapper">
                             <span class="label">新住民父母/監護人姓名1</span>
                             <div>
@@ -282,7 +284,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="field_flex">
+                    <div class="conditional_flex">
                         <div class="input-wrapper">
                             <span class="label">新住民父母/監護人姓名2</span>
                             <div>
@@ -333,6 +335,6 @@
         <button class="next_btn" onclick="location.href='/form-step2-upload.html'">下一頁</button>
     </section>
     <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 </body>
-
 </html>
