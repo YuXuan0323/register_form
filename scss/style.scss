@@ -86,15 +86,42 @@ body{
         height: 100%;
         top: 10%;
         right: 10%;
-        perspective: 1000px;
-        will-change: transform;
-        background: 
-            url('/img/cover_img_form.svg') no-repeat center / contain;
+        perspective: 800px;
+        transform-style: preserve-3d;
+        transition: transform 0.3s ease-out;
+        background: url('/img/cover_img_form1.svg') no-repeat center / contain;
         @include lg{
             width: 40%;
             top: 10%;
             right: 0;
         }
+    }
+    .img_cursor{
+        position: absolute;
+        top: 78%;
+        left: 90%;
+        transform: translate(-50%, -50%) translateZ(30px) rotateX(10deg);
+        width: 40px;
+        height: 40px;
+        background: url('/img/cover_img_cursor.svg') no-repeat center / contain;
+    }
+    .img_drawingline{
+        position: absolute;
+        top: 37%;
+        left: 80%;
+        transform: translate(-50%, -50%) translateZ(30px);
+        width: 30px;
+        height: 30px;
+        // background: url('/img/cover_img_drawingline.svg') no-repeat center / contain;
+    }
+    .img_file{
+        position: absolute;
+        top: 40%;
+        left: 5%;
+        transform: translate(-50%, -50%) translateZ(25px);
+        width: 70px;
+        height: 70px;
+        background: url('/img/cover_img_file.svg') no-repeat center / contain;
     }
 }
 

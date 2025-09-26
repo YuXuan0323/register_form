@@ -1,3 +1,4 @@
+
 //------------ Input  -------------------
 // const input = document.querySelector('#phone');
 // input.addEventListener('input', (event) => {
@@ -69,48 +70,57 @@ document.addEventListener('DOMContentLoaded', () => {
     const card = document.querySelector('.cover_img');
     if (!card) return;
 
-    const MAX_TILT = 15;
+    const MAX_TILT = 5;
+    // const idle = gsap.to(card, {
+    //     keyframes: [
+    //         { rotationX: 15, rotationY: -15, duration: 3 },
+    //         { rotationX: -10, rotationY: 20, duration: 3 },
+    //         { rotationX: 12, rotationY: -8, duration: 2.5 },
+    //         { rotationX: 0, rotationY: 0, duration: 1 },
+    //     ],
+    //     repeat: -1,
+    //     yoyo: true,
+    //     ease: "sine.inOut",
+    //     paused: false
+    // });
 
-    const idle = gsap.to(card, {
-        keyframes: [
-            { rotationX: 15, rotationY: -15, duration: 3 },
-            { rotationX: -10, rotationY: 20, duration: 3 },
-            { rotationX: 12, rotationY: -8, duration: 2.5 },
-            { rotationX: 0,  rotationY: 0,  duration: 2 }
-        ],
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-        paused: false
-    });
+    // card.addEventListener('mouseenter', () => {
+    //     idle.pause();
+    // });
 
-    card.addEventListener('mouseenter', () => {
-        idle.pause();
-    });
-
-    card.addEventListener('mousemove', (e) => {
+    //-------- img_form listen to cursor --------
+    window.addEventListener('pointermove', (e) => {
         const rect = card.getBoundingClientRect();
         const cx = rect.width / 2;
         const cy = rect.height / 2;
         const px = (e.clientX - rect.left - cx) / cx;
         const py = (e.clientY - rect.top  - cy) / cy;
 
-    gsap.to(card, {
-        rotationY: px * MAX_TILT,
-        rotationX: -py * MAX_TILT,
-        transformPerspective: 1000,
-        ease: 'power4.out',
-        duration: 0.2
-    });
-});
-
-    card.addEventListener('mouseleave', () => {
         gsap.to(card, {
-            rotationX: 0,
-            rotationY: 0,
-            ease: 'power4.out',
-            duration: 0.4,
-            onComplete: () => idle.resume()
+            rotationY: px * MAX_TILT,
+            rotationX: -py * MAX_TILT,
+            transformPerspective: 500,
+            ease: 'expo.out',
+            duration: 0.001
         });
     });
+    //-------- img_file --------
+    gsap.to(".img_file", {
+        y: -30,
+        duration: 2, 
+        yoyo: true,  
+        repeat: -1,
+        ease: "sine.inOut"
+    });
+    //-------- img_cursor --------
+    gsap.to(".img_cursor", {
+        x: -30,
+        y: -30,
+        duration: 1, 
+        yoyo: true,  
+        repeat: -1,
+        ease: "bounce"
+    });
+    //-------- img_drawingline --------
 });
+
