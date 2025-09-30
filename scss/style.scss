@@ -67,7 +67,7 @@ body{
     }
     @include sm{
         max-width: 90%;
-        height: 30vh;
+        height: 25vh;
         .cover_title_wrapper{
             width: 50%;
             .sem_tag{
@@ -89,7 +89,7 @@ body{
         perspective: 800px;
         transform-style: preserve-3d;
         transition: transform 0.3s ease-out;
-        background: url('/img/cover_img_form1.svg') no-repeat center / contain;
+        background: url('/img/cover_img_form.svg') no-repeat center / contain;
         @include lg{
             width: 40%;
             top: 10%;
@@ -98,30 +98,53 @@ body{
     }
     .img_cursor{
         position: absolute;
-        top: 78%;
-        left: 90%;
-        transform: translate(-50%, -50%) translateZ(30px) rotateX(10deg);
-        width: 40px;
-        height: 40px;
-        background: url('/img/cover_img_cursor.svg') no-repeat center / contain;
-    }
-    .img_drawingline{
-        position: absolute;
-        top: 37%;
+        top: 75%;
         left: 80%;
-        transform: translate(-50%, -50%) translateZ(30px);
-        width: 30px;
-        height: 30px;
-        // background: url('/img/cover_img_drawingline.svg') no-repeat center / contain;
+        transform: translate(-50%, -50%) translateZ(30px) rotateX(10deg);
+        width: 2rem;
+        height: 2rem;
+        background: url('/img/cover_img_cursor.svg') no-repeat center / contain;
+        @include lg{
+            top: 70%;
+        }
+        @include sm{
+            width: 1rem;
+            height: 1rem;
+        }
     }
+    // .img_drawingline{
+    //     position: absolute;
+    //     top: 40%;
+    //     left: 81%;
+    //     transform: translate(-50%, -50%) translateZ(35px);
+    //     width: 25px;
+    //     height: 25px;
+    // }
     .img_file{
         position: absolute;
-        top: 40%;
+        top: 47%;
         left: 5%;
-        transform: translate(-50%, -50%) translateZ(25px);
-        width: 70px;
-        height: 70px;
+        transform: translate(-50%, -50%) translateZ(30px);
+        width: 3.5rem;
+        height: 3.5rem;
         background: url('/img/cover_img_file.svg') no-repeat center / contain;
+        @include sm{
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+    .img_pen{
+        position: absolute;
+        top: 45%;
+        left: 87%;
+        transform: translate(-50%, -50%) translateZ(30px);
+        width: 3.5rem;
+        height: 3.5rem;
+        background: url('/img/cover_img_pen.svg') no-repeat center / contain;
+        @include sm{
+            width: 2rem;
+            height: 2rem;
+        }
     }
 }
 
