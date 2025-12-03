@@ -1,68 +1,3 @@
-
-//------------ Input  -------------------
-// const input = document.querySelector('#phone');
-// input.addEventListener('input', (event) => {
-//     let val = event.target.value.replace(/\D/g, '').slice(0, 10);
-//     let formatted = val
-//     .replace(/^(\d{4})(\d{0,3})(\d{0,3})$/, (match, g1, g2, g3) =>
-//         [g1, g2, g3].filter(Boolean).join('-')
-//     );
-//     event.target.value = formatted;
-// });
-
-//------------ Dropdown -------------------
-document.querySelectorAll('.dropdown-box').forEach(dropdown => {
-    const selected = dropdown.querySelector('.selected-option');
-    const menu = dropdown.querySelector('.dropdown-menu');
-    const items = menu.querySelectorAll('li');
-
-    selected.addEventListener('click', () => {
-        dropdown.classList.toggle('open');
-    });
-
-    items.forEach(item => {
-        item.addEventListener('click', () => {
-            const value = item.getAttribute('data-value');
-            selected.textContent = value;
-
-            selected.classList.add('filled');
-
-            items.forEach(i => i.classList.remove('selected'));
-            item.classList.add('selected');
-
-            dropdown.classList.remove('open');
-        });
-    });
-    document.addEventListener('click', (e) => {
-        if (!dropdown.contains(e.target)) {
-            dropdown.classList.remove('open');
-        }
-    });
-});
-//------------ checked => disable input & dropdown -------------------
-const chk = document.getElementById('opt-contract');
-const scope = document.getElementById('contact-address');
-if (chk && scope) {
-    chk.addEventListener('change', () => {
-        const disabled = chk.checked;
-        scope.dataset.disabled = disabled;
-        scope.querySelector('input[type="text"]').disabled = disabled;
-    });
-}
-
-//------------ Progress -------------------
-const percent = 30;
-const remaining = 2;
-
-document.querySelectorAll('.upload-state').forEach((box) => {
-    if (box.dataset.status === 'uploading') {
-        const fill = box.querySelector('.progress-fill');
-        const info = box.querySelector('.progress-info');
-        if (fill) fill.style.width = percent + '%';
-        if (info) info.textContent = `剩餘 ${remaining} 分鐘・${percent}%`;
-    }
-});
-
 //------------ Cover img | animation -------------------
 document.addEventListener('DOMContentLoaded', () => {
     const card = document.querySelector('.cover_img');
@@ -113,33 +48,201 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: "circ.inOut"
     });
 
-    //-------- img_drawingline --------
-    // const svgNS = "http://www.w3.org/2000/svg";
-    // const svg = document.createElementNS(svgNS, "svg");
-    // svg.setAttribute("viewBox", "0 0 89 33");
-    // svg.setAttribute("width", "40");
-    // svg.setAttribute("height", "40");
-    // svg.style.maxHeight = "50vh";
 
-    // const path = document.createElementNS(svgNS, "path");
-    // path.setAttribute("fill", "none");
-    // path.setAttribute("stroke", "#2F5BE1");
-    // path.setAttribute("stroke-opacity", "0.4");
-    // path.setAttribute("stroke-width", "6");
-    // path.setAttribute("stroke-linecap", "round");
-    // path.setAttribute(
-    //     "d",
-    //     "M3 19.6961C11.273 12.0787 20.4304 6.24974 26.7515 5.6525C31.0154 5.24963 28.5756 14.6513 28.4249 18.0323C28.3621 19.4414 28.7592 20.2306 30.1649 19.9403C38.3149 15.6281 43.7765 12.0114 56 3"
-    // );
+//------------ Input  -------------------
+// const input = document.querySelector('#phone');
+// input.addEventListener('input', (event) => {
+//     let val = event.target.value.replace(/\D/g, '').slice(0, 10);
+//     let formatted = val
+//     .replace(/^(\d{4})(\d{0,3})(\d{0,3})$/, (match, g1, g2, g3) =>
+//         [g1, g2, g3].filter(Boolean).join('-')
+//     );
+//     event.target.value = formatted;
+// });
 
-    // svg.appendChild(path);
-    // document.getElementById("drawingline").appendChild(svg);
+//------------ Dropdown -------------------
+document.querySelectorAll('.dropdown-box').forEach(dropdown => {
+    const selected = dropdown.querySelector('.selected-option');
+    const menu = dropdown.querySelector('.dropdown-menu');
+    const items = menu.querySelectorAll('li');
 
-    // gsap.from("#drawingline path", {
-    //     drawSVG: "0%",
-    //     duration: 1.5,
-    //     ease: "slow(0.7,0.7,false)"
-    // });
+    selected.addEventListener('click', () => {
+        dropdown.classList.toggle('open');
+    });
+
+    items.forEach(item => {
+        item.addEventListener('click', () => {
+            const value = item.getAttribute('data-value');
+            selected.textContent = value;
+
+            selected.classList.add('filled');
+
+            items.forEach(i => i.classList.remove('selected'));
+            item.classList.add('selected');
+
+            dropdown.classList.remove('open');
+        });
+    });
+    document.addEventListener('click', (e) => {
+        if (!dropdown.contains(e.target)) {
+            dropdown.classList.remove('open');
+        }
+    });
+});
+//------------ Dropdown | Birthday -------------------
+// const birthdaySection = document.querySelector('.birthday-section');
+// const dropdowns = birthdaySection.querySelectorAll('.dropdown-box');
+// const currentYear = new Date().getFullYear();
+
+// birthdaySection.addEventListener('click', e => {
+//     const box = e.target.closest('.dropdown-box');
+//     if (box) {
+//         box.classList.toggle('open');
+//         console.log('有加open',box.classList.contains('open'));
+//     }
+// });
+
+// dropdowns.forEach(drop => {
+//     const type = drop.dataset.type;
+//     const menu = drop.querySelector('.dropdown-menu');
+
+//     if (type === 'year') {
+//         for (let y = currentYear; y >= 1980; y--) {
+//             menu.innerHTML += `<li data-value="${y}">${y}<span class="check-icon"></span></li>`;
+//         }
+//     } else if (type === 'month') {
+//         for (let m = 1; m <= 12; m++) {
+//             menu.innerHTML += `<li data-value="${m}">${m}<span class="check-icon"></span></li>`;
+//         }
+//     }
+// });
+//   function updateDays(year, month) {
+//     const dayBox = birthdaySection.querySelector('.dropdown-box[data-type="day"] .dropdown-menu');
+//     dayBox.innerHTML = '';
+//     if (year && month) {
+//       const days = new Date(year, month, 0).getDate();
+//       for (let d = 1; d <= days; d++) {
+//         dayBox.innerHTML += `<li data-value="${d}">${d}<span class="check-icon"></span></li>`;
+//       }
+//     }
+//   }
+
+// birthdaySection.addEventListener('click', e => {
+//     const li = e.target.closest('.dropdown-menu li');
+//     const box = e.target.closest('.dropdown-box');
+
+//   if (box) {
+//     const selectedText = box.querySelector('.selected-option');
+//     selectedText.textContent = li.dataset.value;
+//     box.dataset.selected = li.dataset.value;
+//     box.classList.toggle('open');
+
+
+//     const year = birthdaySection.querySelector('.dropdown-box[data-type="year"]').dataset.selected;
+//     const month = birthdaySection.querySelector('.dropdown-box[data-type="month"]').dataset.selected;
+//     if (year && month) updateDays(year, month);
+//   } else if (box) {
+//     console.log('有加open',box.classList.contains('open'));
+//     box.classList.toggle('open');
+//   } else {
+//     birthdaySection.querySelectorAll('.dropdown-box').forEach(b => b.classList.remove('open'));
+//   }
+// });
+
+//------------ checked => disable input & dropdown -------------------
+const chk = document.getElementById('opt-contract');
+const scope = document.getElementById('contact-address');
+if (chk && scope) {
+    chk.addEventListener('change', () => {
+        const disabled = chk.checked;
+        scope.dataset.disabled = disabled;
+        scope.querySelector('input[type="text"]').disabled = disabled;
+    });
+}
+
+//------------ Upload File | Progress -------------------
+const percent = 30;
+const remaining = 2;
+
+document.querySelectorAll('.upload-state').forEach((box) => {
+    if (box.dataset.status === 'uploading') {
+        const fill = box.querySelector('.progress-fill');
+        const info = box.querySelector('.progress-info');
+        if (fill) fill.style.width = percent + '%';
+        if (info) info.textContent = `剩餘 ${remaining} 分鐘・${percent}%`;
+    }
 });
 
+//------------ Upload File | btn-cancel of Progress switch data-status to idle  -------------------
+document.addEventListener('click', function(e) {
+    if (e.target.matches('.btn-progress-cancel') ) {
+        const wrapper = e.target.closest('.upload-state');
+        if (wrapper) {
+            wrapper.dataset.status = 'idle';
+        }
+    }
+});
+
+function setUploadStatus(target, status = 'idle') {
+    const wrapper = target.closest('.upload-state');
+    if (wrapper) wrapper.dataset.status = status;
+}
+
+//------------ Modal -------------------
+fetch("modal.html")
+  .then(res => res.text())
+  .then(html => {
+    document.body.insertAdjacentHTML("beforeend", html);
+
+    const overlay    = document.querySelector(".modal-overlay");
+    const modal      = document.querySelector(".modal");
+    const closeBtn   = document.querySelector(".modal .close");
+    const cancelBtn  = document.querySelector('[data-action="cancel"]');
+    const confirmBtn = document.querySelector('[data-action="confirm"]');
+    const deleteGif  = document.querySelector('.gif_trashbin');
+
+    function restartGif() {
+        const ts = Date.now();
+        deleteGif.style.setProperty('--gif-url', `url('/img/modal_trashbin_back.gif?${ts}')`);
+    }
+
+    function openModal() {
+        overlay.classList.add("is-open");
+        modal.classList.add("is-open");
+        overlay.setAttribute("aria-hidden", "false");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+        restartGif();
+    }
+
+    function closeModal() {
+        overlay.classList.remove("is-open");
+        modal.classList.remove("is-open");
+        overlay.setAttribute("aria-hidden", "true");
+        modal.setAttribute("aria-hidden", "true");
+        if (document.activeElement) {
+            document.activeElement.blur();
+        }
+        document.body.style.overflow = "";
+    }
+
+    document.addEventListener("click", (e) => {
+        const delBtn = e.target.closest(".btn_delte");
+        if (delBtn) {
+            openModal();
+        }
+    });
+
+    closeBtn.addEventListener("click", closeModal);
+    cancelBtn.addEventListener("click", closeModal);
+    overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) closeModal();
+    });
+
+    confirmBtn.addEventListener("click", () => {
+        closeModal();
+        setUploadStatus(confirmBtn, 'idle');
+    });
+});
+});
 

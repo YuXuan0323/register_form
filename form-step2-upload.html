@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
     <title>台灣大學學士班希望入學招生</title>
 </head>
 <body>
@@ -12,213 +12,176 @@
             <div class="sem_tag">113學年度</div>
             <div class="title">台灣大學<span class="title_highlight">學士班希望入學</span>招生</div>
         </div>
-        <div>
-            <div class="cover_img">
-                <div class="img_cursor"></div>
-                <!-- <div id="drawingline" class="img_drawingline"></div> -->
-                <div class="img_pen"></div>
-                <div class="img_file"></div>
-            </div>
+        <div class="cover_img">
+            <div class="img_cursor"></div>
+            <div class="img_pen"></div>
+            <div class="img_file"></div>
         </div>
     </section>
     <!-- register form -->
-    <section class="form_container">
-        <div>
-            <div>
-                <span class="label">照片(近6個月2吋脫帽照片)</span>
-                <span class="req_tag" data-check="alert">必填</span>
-            </div>
-            <div class="upload-state" data-status="idle">
-                <div class="upload-img"></div>
-                <div class="upload_test">
-                    <div class="upload_info">
-                        <div>
-                            <div class="file-title">
-                                <div class="file-name">ID_5678.jpg</div>
-                                <span class="file-size">(24MB)</span>
-                            </div>
-                            <div class="state-text"></div>
+    <section class="form_container label_wrapper">
+        <span class="label_txt">照片(近6個月2吋脫帽照片)</span>
+        <span class="req_tag" data-check="alert">必填</span>
+        <div class="upload-state" data-status="error">
+            <div class="upload-img"></div>
+            <div class="upload_test">
+                <div class="upload_info">
+                    <div class="file-state_wrapper">
+                        <div class="file-title">
+                            <div class="file-name">ID_5678.jpg</div>
+                            <span class="file-size">(24MB)</span>
                         </div>
-                        <!-- uploading btn -->
-                        <div class="btn-uploading-wrapper">
-                            <button class="btn-progress-cancel"></button>
-                            <div class="progress-info"></div>
-                        </div>
-                        <!-- error btn -->
-                        <div class="btn-error-wrapper">
-                            <button class="btn-retry">
-                                <div>重試</div>
-                            </button>
-                            <button class="btn-upload">
-                                <div>上傳</div>
-                            </button>
-                        </div>
-                        <!-- success btn -->
-                        <div class="btn-success-wrapper">
-                            <button class="btn_success-review"></button>
-                            <button class="btn_success-delete"></button>
-                            <button class="btn_success-upload"></button>
-                        </div>
-                        <!-- idle btn -->
-                        <div class="btn-idle-wrapper">
-                            <button class="btn-upload">
-                                <div>上傳</div>
-                            </button>
-                        </div>
+                        <div class="state-text"></div>
                     </div>
-                    <!-- progress -->
-                    <div class="progress">
-                        <div class="progress-fill"></div>
+                    <!-- uploading btn -->
+                    <div class="btn-uploading-wrapper">
+                        <button class="btn-progress-cancel"></button>
+                        <div class="progress-info"></div>
                     </div>
+                    <!-- error btn -->
+                    <div class="btn-error-wrapper">
+                        <button class="btn-retry">重試</button>
+                        <button class="btn-upload">上傳</button>
+                    </div>
+                    <!-- success btn -->
+                    <div class="btn-success-wrapper">
+                        <button class="btn_success-review"></button>
+                        <button class="btn_success-delete btn_delte"></button>
+                        <button class="btn_success-upload"></button>
+                    </div>
+                    <!-- idle btn -->
+                    <div class="btn-idle-wrapper">
+                        <button class="btn-upload">上傳</button>
+                    </div>
+                </div>
+                <!-- progress -->
+                <div class="progress">
+                    <div class="progress-fill"></div>
                 </div>
             </div>
         </div>
-        <div>
-            <div>
-                <span class="label">目前為高三生在學證明</span>
-                <span class="req_tag">必填</span>
-            </div>
-            <div class="upload-state" data-status="uploading">
-                <div class="upload-img"></div>
-                <div class="upload_test">
-                    <div class="upload_info">
-                        <div>
-                            <div class="file-title">
-                                <div class="file-name">ID_5678.jpg</div>
-                                <span class="file-size">(24MB)</span>
-                            </div>
-                            <div class="state-text"></div>
+        <div class="label_wrapper">
+            <span class="label_txt">目前為高三生在學證明</span>
+            <span class="req_tag">必填</span>
+        </div>
+        <div class="upload-state" data-status="success">
+            <div class="upload-img"></div>
+            <div class="upload_test">
+                <div class="upload_info">
+                    <div class="file-state_wrapper">
+                        <div class="file-title">
+                            <div class="file-name">ID_5678.jpg</div>
+                            <span class="file-size">(24MB)</span>
                         </div>
-                        <!-- uploading btn -->
-                        <div class="btn-uploading-wrapper">
-                            <button class="btn-progress-cancel"></button>
-                            <div class="progress-info"></div>
-                        </div>
-                        <!-- error btn -->
-                        <div class="btn-error-wrapper">
-                            <button class="btn-retry">
-                                <div>重試</div>
-                            </button>
-                            <button class="btn-upload">
-                                <div>上傳</div>
-                            </button>
-                        </div>
-                        <!-- success btn -->
-                        <div class="btn-success-wrapper">
-                            <button class="btn_success-review"></button>
-                            <button class="btn_success-delete"></button>
-                            <button class="btn_success-upload"></button>
-                        </div>
-                        <!-- idle btn -->
-                        <div class="btn-idle-wrapper">
-                            <button class="btn-upload">
-                                <div>上傳</div>
-                            </button>
-                        </div>
+                        <div class="state-text"></div>
                     </div>
-                    <!-- progress -->
-                    <div class="progress">
-                        <div class="progress-fill"></div>
+                    <!-- uploading btn -->
+                    <div class="btn-uploading-wrapper">
+                        <button class="btn-progress-cancel"></button>
+                        <div class="progress-info"></div>
+                    </div>
+                    <!-- error btn -->
+                    <div class="btn-error-wrapper">
+                        <button class="btn-retry">重試</button>
+                        <button class="btn-upload">上傳</button>
+                    </div>
+                    <!-- success btn -->
+                    <div class="btn-success-wrapper">
+                        <button class="btn_success-review"></button>
+                        <button class="btn_success-delete btn_delte"></button>
+                        <button class="btn_success-upload"></button>
+                    </div>
+                    <!-- idle btn -->
+                    <div class="btn-idle-wrapper">
+                        <button class="btn-upload">上傳</button>
                     </div>
                 </div>
-            </div>
-        </div>        
-        <div>
-            <div>
-                <span class="label">高中歷年成績單</span>
-                <span class="req_tag" data-check="true">必填</span>
-            </div>
-            <div class="upload-state" data-status="success">
-                <div class="upload-img"></div>
-                <div class="upload_test">
-                    <div class="upload_info">
-                        <div>
-                            <div class="file-title">
-                                <div class="file-name">ID_5678.jpg</div>
-                                <span class="file-size">(24MB)</span>
-                            </div>
-                            <div class="state-text"></div>
-                        </div>
-                        <!-- uploading btn -->
-                        <div class="btn-uploading-wrapper">
-                            <div class="progress-info"></div>
-                        </div>
-                        <!-- error btn -->
-                        <div class="btn-error-wrapper">
-                            <button class="btn-retry">
-                                <div>重試</div>
-                            </button>
-                            <button class="btn-upload">
-                                <div>上傳</div>
-                            </button>
-                        </div>
-                        <!-- success btn -->
-                        <div class="btn-success-wrapper">
-                            <button class="btn_success-review"></button>
-                            <button class="btn_success-delete"></button>
-                            <button class="btn_success-upload"></button>
-                        </div>
-                        <!-- idle btn -->
-                        <div class="btn-idle-wrapper">
-                            <button class="btn-upload">
-                                <div>上傳</div>
-                            </button>
-                        </div>
-                    </div>
-                    <!-- progress -->
-                    <div class="progress">
-                        <div class="progress-fill"></div>
-                    </div>
+                <!-- progress -->
+                <div class="progress">
+                    <div class="progress-fill"></div>
                 </div>
             </div>
         </div>
-        <div>
-            <div class="label_wrapper" data-supportxt="true">
-                <span class="label_txt">符合弱勢家庭證明</span>
-                <span class="req_tag">必填</span>
-                <div class="supportxt">戶籍謄本 + 111年至113年低收或中低收戶證明</div>
+        <div class="label_wrapper">
+            <span class="label_txt">高中歷年成績單</span>
+            <span class="req_tag" data-check="true">必填</span>
+        </div>
+        <div class="upload-state" data-status="error">
+            <div class="upload-img"></div>
+            <div class="upload_test">
+                <div class="upload_info">
+                    <div class="file-state_wrapper">
+                        <div class="file-title">
+                            <div class="file-name">ID_5678.jpg</div>
+                            <span class="file-size">(24MB)</span>
+                        </div>
+                        <div class="state-text"></div>
+                    </div>
+                    <!-- uploading btn -->
+                    <div class="btn-uploading-wrapper">
+                        <div class="progress-info"></div>
+                    </div>
+                    <!-- error btn -->
+                    <div class="btn-error-wrapper">
+                        <button class="btn-retry">重試</button>
+                        <button class="btn-upload">上傳</button>
+                    </div>
+                    <!-- success btn -->
+                    <div class="btn-success-wrapper">
+                        <button class="btn_success-review"></button>
+                        <button class="btn_success-delete btn_delte"></button>
+                        <button class="btn_success-upload"></button>
+                    </div>
+                    <!-- idle btn -->
+                    <div class="btn-idle-wrapper">
+                        <button class="btn-upload">上傳</button>
+                    </div>
+                </div>
+                <!-- progress -->
+                <div class="progress">
+                    <div class="progress-fill"></div>
+                </div>
             </div>
-            <div class="upload-state" data-status="error">
-                <div class="upload-img"></div>
-                <div class="upload_test">
-                    <div class="upload_info">
-                        <div>
-                            <div class="file-title">
-                                <div class="file-name">ID_5678.jpg</div>
-                                <span class="file-size">(24MB)</span>
-                            </div>
-                            <div class="state-text"></div>
+        </div>
+        <div class="label_wrapper" data-supportxt="true">
+            <span class="label_txt">符合弱勢家庭證明</span>
+            <span class="req_tag">必填</span>
+            <div class="supportxt">戶籍謄本 + 111年至113年低收或中低收戶證明</div>
+        </div>
+        <div class="upload-state" data-status="success">
+            <div class="upload-img"></div>
+            <div class="upload_test">
+                <div class="upload_info">
+                    <div class="file-state_wrapper">
+                        <div class="file-title">
+                            <div class="file-name">ID_5678.jpg</div>
+                            <span class="file-size">(24MB)</span>
                         </div>
-                        <!-- uploading btn -->
-                        <div class="btn-uploading-wrapper">
-                            <div class="progress-info"></div>
-                        </div>
-                        <!-- error btn -->
-                        <div class="btn-error-wrapper">
-                            <button class="btn-retry">
-                                <div>重試</div>
-                            </button>
-                            <button class="btn-upload">
-                                <div>上傳</div>
-                            </button>
-                        </div>
-                        <!-- success btn -->
-                        <div class="btn-success-wrapper">
-                            <button class="btn_success-review"></button>
-                            <button class="btn_success-delete"></button>
-                            <button class="btn_success-upload"></button>
-                        </div>
-                        <!-- idle btn -->
-                        <div class="btn-idle-wrapper">
-                            <button class="btn-upload" disabled>
-                                <div>上傳</div>
-                            </button>
-                        </div>
+                        <div class="state-text"></div>
                     </div>
-                    <!-- progress -->
-                    <div class="progress">
-                        <div class="progress-fill"></div>
+                    <!-- uploading btn -->
+                    <div class="btn-uploading-wrapper">
+                        <div class="progress-info"></div>
                     </div>
+                    <!-- error btn -->
+                    <div class="btn-error-wrapper">
+                        <button class="btn-retry">重試</button>
+                        <button class="btn-upload">上傳</button>
+                    </div>
+                    <!-- success btn -->
+                    <div class="btn-success-wrapper">
+                        <button class="btn_success-review"></button>
+                        <button class="btn_success-delete btn_delte"></button>
+                        <button class="btn_success-upload"></button>
+                    </div>
+                    <!-- idle btn -->
+                    <div class="btn-idle-wrapper">
+                        <button class="btn-upload" disabled>上傳</button>
+                    </div>
+                </div>
+                <!-- progress -->
+                <div class="progress">
+                    <div class="progress-fill"></div>
                 </div>
             </div>
         </div>
@@ -227,7 +190,8 @@
         <button class="next_btn" onclick="location.href='/form-step3-confirm.html'">下一頁</button>
         <button class="upper_btn" onclick="location.href='/index.html'">上一頁</button>
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Physics2DPlugin.min.js"></script>
+    <script src="libs/gsap.min.js"></script>
     <script src="js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 </body>
 </html>

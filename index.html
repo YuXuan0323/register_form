@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
     <title>台灣大學學士班希望入學招生</title>
 </head>
 <body>
@@ -13,13 +12,10 @@
             <div class="sem_tag">113學年度</div>
             <div class="title">台灣大學<span class="title_highlight">學士班希望入學</span>招生</div>
         </div>
-        <div>
-            <div class="cover_img">
-                <div class="img_cursor"></div>
-                <!-- <div id="drawingline" class="img_drawingline"></div> -->
-                <div class="img_pen"></div>
-                <div class="img_file"></div>
-            </div>
+        <div class="cover_img">
+            <div class="img_cursor"></div>
+            <div class="img_pen"></div>
+            <div class="img_file"></div>
         </div>
     </section>
     <!-- register form -->
@@ -50,46 +46,25 @@
                 </div>
             </div>
         </div>
-        <div class="mb-16">
+        <div class="mb-16 birthday-section">
             <span class="label">考生生日</span>
             <div class="field_flex">
                 <div class="dropdown-wrapper">
-                    <div class="dropdown-box" tabindex="0">
+                    <div class="dropdown-box" data-type="year" tabindex="0">
                         <div class="selected-option">年</div>
-                        <ul class="dropdown-menu">
-                            <li data-value="chen">陳大文
-                                <span class="check-icon" aria-hidden="true"></span>
-                            </li>
-                            <li data-value="chang">李小美
-                                <span class="check-icon" aria-hidden="true"></span>
-                            </li>
-                        </ul>
+                        <ul class="dropdown-menu"></ul>
                     </div>
                 </div>
                 <div class="dropdown-wrapper">
-                    <div class="dropdown-box" tabindex="0">
+                    <div class="dropdown-box" data-type="month" tabindex="0">
                         <div class="selected-option">月</div>
-                        <ul class="dropdown-menu">
-                            <li data-value="chen">陳大文
-                                <span class="check-icon" aria-hidden="true"></span>
-                            </li>
-                            <li data-value="chang">李小美
-                                <span class="check-icon" aria-hidden="true"></span>
-                            </li>
-                        </ul>
+                        <ul class="dropdown-menu"></ul>
                     </div>
                 </div>
                 <div class="dropdown-wrapper">
-                    <div class="dropdown-box" tabindex="0">
+                    <div class="dropdown-box" data-type="day" tabindex="0">
                         <div class="selected-option">日</div>
-                        <ul class="dropdown-menu">
-                            <li data-value="chen">陳大文
-                                <span class="check-icon" aria-hidden="true"></span>
-                            </li>
-                            <li data-value="chang">李小美
-                                <span class="check-icon" aria-hidden="true"></span>
-                            </li>
-                        </ul>
+                        <ul class="dropdown-menu"></ul>
                     </div>
                 </div>
             </div>
@@ -249,11 +224,9 @@
                 </div>
             </div>
             <!-- 特殊境遇 -->
-            <div>
-                <div class="custom-checkbox">
-                    <input type="checkbox" id="opt-special">
-                    <label for="opt-special">特殊境遇</label>
-                </div>
+            <div class="custom-checkbox">
+                <input type="checkbox" id="opt-special">
+                <label for="opt-special">特殊境遇</label>
             </div>
             <!-- 新住民 -->
             <div class="cond">
@@ -338,8 +311,7 @@
     <section class="btn_container">
         <button class="next_btn" onclick="location.href='/form-step2-upload.html'">下一頁</button>
     </section>
+    <script src="libs/gsap.min.js"></script>
     <script src="js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/DrawSVGPlugin.min.js"></script>
 </body>
 </html>
