@@ -97,6 +97,20 @@ $lg: 1024px;
                 box-shadow: 0 0 0 4px rgba($brand-10, 0.8);
                 background-color: $form-background;
             }
+            &:disabled {
+                border-color: $gray-30;
+                box-shadow: none;
+                background: $gray-10;
+                color: $gray-50;
+                cursor: not-allowed;
+            }
+        }
+        input.error {
+            border: 1px solid $red-30;
+            background-color: rgba($red-30, 0.05);
+            .input-icon {
+                display: block;
+            }
         }
         &::after{
             content: "";
@@ -111,15 +125,12 @@ $lg: 1024px;
             background-size: contain;
             display: none;
         }
-        &.error {
-            input {
-                border: 1px solid $red-30;
-                background-color: rgba($red-30, 0.05);
-            }
-            .input-icon {
-                display: block;
-            }
-        }
+        // &.error {
+        //     input {
+        //         border: 1px solid $red-30;
+        //         background-color: rgba($red-30, 0.05);
+        //     }
+        // }
     }
     @include sm {
         @include body-2;
@@ -147,7 +158,7 @@ $lg: 1024px;
 }
 .error-message {
     font-size: 14px;
-    margin-top: 4px;
+    margin: 4px 0 0 8px;
     color: $red-30;
     display: none;
     .input-box.error + & {
@@ -376,7 +387,7 @@ $lg: 1024px;
       
     input[type="radio"]:disabled + label:hover:before,
     input[type="radio"]:disabled + label:active:before {
-        background-color: $gray-10;
+        background: $gray-10;
         border-color: $gray-30;
     }
 }
@@ -480,7 +491,7 @@ $lg: 1024px;
                     }
                 }
                 &[aria-disabled="true"] {
-                    color: $gray-20;
+                    color: $gray-10;
                     pointer-events: none;
                 }
             }
@@ -544,7 +555,7 @@ $lg: 1024px;
             background: rgba($brand-20, 0.5);
         }
         &:disabled{
-            background: $gray-20;
+            background: $gray-10;
             color: $gray-40;
             cursor: not-allowed;
         }
@@ -568,7 +579,7 @@ $lg: 1024px;
             background: $brand-80;
         }
         &:disabled{
-            background: $gray-20;
+            background: $gray-10;
             color: $gray-40;
             cursor: not-allowed;
         }
@@ -651,7 +662,7 @@ $lg: 1024px;
             background-color: $red-10;
         }
         &:disabled {
-            background-color: $gray-20;
+            background: $gray-10;
             color: $gray-40;
             cursor: not-allowed;
         }
@@ -667,7 +678,7 @@ $lg: 1024px;
             background-color: $brand-80;
         }
         &:disabled {
-            background-color: $gray-20;
+            background: $gray-10;
             color: $gray-40;
             cursor: not-allowed;
         }
@@ -1074,7 +1085,7 @@ $lg: 1024px;
                     background-color: $red-40;
                 }
                 &:disabled {
-                    background-color: $gray-20;
+                    background: $gray-10;
                     color: $gray-40;
                     cursor: not-allowed;
                 }

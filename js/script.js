@@ -48,19 +48,59 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: "circ.inOut"
     });
 
+//------------ Input | Validation -------------------
+$.validator.addMethod("twPhone", function (value, element) {
+    const phoneReg = /^09\d{2}-\d{3}-\d{3}$/;
+    return this.optional(element) || phoneReg.test(value);
+});
 
-//------------ Input  -------------------
-// const input = document.querySelector('#phone');
-// input.addEventListener('input', (event) => {
-//     let val = event.target.value.replace(/\D/g, '').slice(0, 10);
-//     let formatted = val
-//     .replace(/^(\d{4})(\d{0,3})(\d{0,3})$/, (match, g1, g2, g3) =>
-//         [g1, g2, g3].filter(Boolean).join('-')
-//     );
-//     event.target.value = formatted;
-// });
+$("#applyForm").validate({
+    rules: {
+        email: {
+            required: true,
+            email: true
+        },
+        phone: {
+            required: true,
+            twPhone: true
+        },
+        
+    },
+    messages: {
+        email: {
+            required: "請輸入電子信箱",
+            email: "請輸入正確的電子信箱格式（例如：example@gmail.com）"
+        },
+        phone: {
+            required: "請輸入聯絡電話",
+            twPhone: "請輸入有效的電話格式，例如：0912-345-678"
+        }
+    },
 
-//------------ Dropdown -------------------
+    errorClass: "error-message",
+
+    highlight: function (element) {
+        element.classList.add("error");
+    },
+    unhighlight: function (element) {
+        element.classList.remove("error");
+    },
+
+    errorPlacement: function (error, element) {
+        const wrapper = element.closest(".input-box");
+        if (wrapper) {
+            error.insertAfter(wrapper);
+        } else {
+            error.insertAfter(element);
+        }
+    },
+    onkeyup: false,
+    submitHandler: function (form) {
+        form.submit();
+    }
+});
+
+//============== Dropdown ==============
 document.querySelectorAll('.dropdown-box').forEach(dropdown => {
     const selected = dropdown.querySelector('.selected-option');
     const menu = dropdown.querySelector('.dropdown-menu');
@@ -90,64 +130,64 @@ document.querySelectorAll('.dropdown-box').forEach(dropdown => {
     });
 });
 //------------ Dropdown | Birthday -------------------
-// const birthdaySection = document.querySelector('.birthday-section');
-// const dropdowns = birthdaySection.querySelectorAll('.dropdown-box');
-// const currentYear = new Date().getFullYear();
+const birthdaySection = document.querySelector('.birthday-section');
+const dropdowns = birthdaySection.querySelectorAll('.dropdown-box');
+const currentYear = new Date().getFullYear();
 
-// birthdaySection.addEventListener('click', e => {
-//     const box = e.target.closest('.dropdown-box');
-//     if (box) {
-//         box.classList.toggle('open');
-//         console.log('有加open',box.classList.contains('open'));
-//     }
-// });
+birthdaySection.addEventListener('click', e => {
+    const box = e.target.closest('.dropdown-box');
+    if (box) {
+        box.classList.toggle('open');
+        console.log('有加open',box.classList.contains('open'));
+    }
+});
 
-// dropdowns.forEach(drop => {
-//     const type = drop.dataset.type;
-//     const menu = drop.querySelector('.dropdown-menu');
+dropdowns.forEach(drop => {
+    const type = drop.dataset.type;
+    const menu = drop.querySelector('.dropdown-menu');
 
-//     if (type === 'year') {
-//         for (let y = currentYear; y >= 1980; y--) {
-//             menu.innerHTML += `<li data-value="${y}">${y}<span class="check-icon"></span></li>`;
-//         }
-//     } else if (type === 'month') {
-//         for (let m = 1; m <= 12; m++) {
-//             menu.innerHTML += `<li data-value="${m}">${m}<span class="check-icon"></span></li>`;
-//         }
-//     }
-// });
-//   function updateDays(year, month) {
-//     const dayBox = birthdaySection.querySelector('.dropdown-box[data-type="day"] .dropdown-menu');
-//     dayBox.innerHTML = '';
-//     if (year && month) {
-//       const days = new Date(year, month, 0).getDate();
-//       for (let d = 1; d <= days; d++) {
-//         dayBox.innerHTML += `<li data-value="${d}">${d}<span class="check-icon"></span></li>`;
-//       }
-//     }
-//   }
+    if (type === 'year') {
+        for (let y = currentYear; y >= 1980; y--) {
+            menu.innerHTML += `<li data-value="${y}">${y}<span class="check-icon"></span></li>`;
+        }
+    } else if (type === 'month') {
+        for (let m = 1; m <= 12; m++) {
+            menu.innerHTML += `<li data-value="${m}">${m}<span class="check-icon"></span></li>`;
+        }
+    }
+});
+  function updateDays(year, month) {
+    const dayBox = birthdaySection.querySelector('.dropdown-box[data-type="day"] .dropdown-menu');
+    dayBox.innerHTML = '';
+    if (year && month) {
+      const days = new Date(year, month, 0).getDate();
+      for (let d = 1; d <= days; d++) {
+        dayBox.innerHTML += `<li data-value="${d}">${d}<span class="check-icon"></span></li>`;
+      }
+    }
+  }
 
-// birthdaySection.addEventListener('click', e => {
-//     const li = e.target.closest('.dropdown-menu li');
-//     const box = e.target.closest('.dropdown-box');
+birthdaySection.addEventListener('click', e => {
+    const li = e.target.closest('.dropdown-menu li');
+    const box = e.target.closest('.dropdown-box');
 
-//   if (box) {
-//     const selectedText = box.querySelector('.selected-option');
-//     selectedText.textContent = li.dataset.value;
-//     box.dataset.selected = li.dataset.value;
-//     box.classList.toggle('open');
+  if (li) {
+    const selectedText = box.querySelector('.selected-option');
+    selectedText.textContent = li.dataset.value;
+    box.dataset.selected = li.dataset.value;
+    box.classList.toggle('open');
 
 
-//     const year = birthdaySection.querySelector('.dropdown-box[data-type="year"]').dataset.selected;
-//     const month = birthdaySection.querySelector('.dropdown-box[data-type="month"]').dataset.selected;
-//     if (year && month) updateDays(year, month);
-//   } else if (box) {
-//     console.log('有加open',box.classList.contains('open'));
-//     box.classList.toggle('open');
-//   } else {
-//     birthdaySection.querySelectorAll('.dropdown-box').forEach(b => b.classList.remove('open'));
-//   }
-// });
+    const year = birthdaySection.querySelector('.dropdown-box[data-type="year"]').dataset.selected;
+    const month = birthdaySection.querySelector('.dropdown-box[data-type="month"]').dataset.selected;
+    if (year && month) updateDays(year, month);
+  } else if (box) {
+    console.log('有加open',box.classList.contains('open'));
+    box.classList.toggle('open');
+  } else {
+    birthdaySection.querySelectorAll('.dropdown-box').forEach(b => b.classList.remove('open'));
+  }
+});
 
 //------------ checked => disable input & dropdown -------------------
 const chk = document.getElementById('opt-contract');
