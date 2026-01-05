@@ -121,7 +121,7 @@ $lg: 1024px;
             width: 20px;
             height: 20px;
             pointer-events: none;
-            background: url("/img/icon-alert.svg") no-repeat center;
+            background: url("../img/icon-alert.svg") no-repeat center;
             background-size: contain;
             display: none;
         }
@@ -210,7 +210,7 @@ $lg: 1024px;
         }
         &:after {
             content: '';
-            background: url(/img/icon_checkbox.svg) no-repeat center;
+            background: url(../img/icon_checkbox.svg) no-repeat center;
             width: 16px;
             height: 16px;
             position: absolute;
@@ -347,7 +347,7 @@ $lg: 1024px;
         }
         &:after {
             content: '';
-            background: url(/img/icon_radio-ellipse.svg) no-repeat center;
+            background: url(../img/icon_radio-ellipse.svg) no-repeat center;
             width: 16px;
             height: 16px;
             position: absolute;
@@ -432,7 +432,7 @@ $lg: 1024px;
             transform: translateY(-50%);
             width: 20px;
             height: 20px;
-            background: url("/img/arrow_down.svg") no-repeat center;
+            background: url("../img/arrow_down.svg") no-repeat center;
             background-size: contain;
             pointer-events: none;
         }
@@ -478,7 +478,7 @@ $lg: 1024px;
                     color: $brand-60;
                     width: 20px;
                     height: 20px;
-                    background: url(/img/icon_check-opt.svg) repeat center;
+                    background: url(../img/icon_check-opt.svg) repeat center;
                 }
                 &:hover {
                     background: $background;
@@ -604,7 +604,7 @@ $lg: 1024px;
             top: 8px;
             width: 10px;
             height: 10px;
-            background: url(/img/icon_cancel.svg) no-repeat center/contain;
+            background: url(../img/icon_cancel.svg) no-repeat center/contain;
         }
         &:hover {
             background-color: $gray-20;
@@ -726,17 +726,17 @@ $lg: 1024px;
     align-items: center;
     .btn_success-review{
         @include btn_icon;
-        @include icon_mask("/img/icon_review.svg");
+        @include icon_mask("../img/icon_review.svg");
     }
     
     .btn_success-delete{
         @include btn_icon;
-        @include icon_mask("/img/icon_delete.svg");
+        @include icon_mask("../img/icon_delete.svg");
     }
     
     .btn_success-upload{
         @include btn_icon;
-        @include icon_mask("/img/icon_upload.svg");
+        @include icon_mask("../img/icon_upload.svg");
     }
 }
 
@@ -800,7 +800,7 @@ $lg: 1024px;
             content: "";
             width: 10px;
             height: 10px;
-            background: url(/img/icon_checkmark.svg) no-repeat center/contain;
+            background: url(../img/icon_checkmark.svg) no-repeat center/contain;
         }
     }
     &[data-check="alert"] {
@@ -861,7 +861,7 @@ $lg: 1024px;
     // Uploading State
     &[data-status="uploading"] {
         .upload-img{ 
-            background: url(/img/img_upload_uploading.svg) center no-repeat;
+            background: url(../img/img_upload_uploading.svg) center no-repeat;
         }
         .state-text{
             color: $brand-60; 
@@ -893,7 +893,7 @@ $lg: 1024px;
     // Success State
     &[data-status="success"] {
         .upload-img{
-            background: url(/img/img_upload_success.svg) center no-repeat;
+            background: url(../img/img_upload_success.svg) center no-repeat;
         }
         .state-text{
             color: $green-50;
@@ -911,7 +911,7 @@ $lg: 1024px;
     // Error State
     &[data-status="error"] {
         .upload-img{
-            background: url(/img/img_upload_error.svg) center no-repeat;
+            background: url(../img/img_upload_error.svg) center no-repeat;
         }
         .state-text{
             color:$red-30;
@@ -929,7 +929,7 @@ $lg: 1024px;
     // Idle State
     &[data-status="idle"] {
         .upload-img{
-            background: url(/img/img_upload_idle.svg) center no-repeat;
+            background: url(../img/img_upload_idle.svg) center no-repeat;
         }
         .upload_info{
             align-items: center;
@@ -1002,10 +1002,10 @@ $lg: 1024px;
     );
     background-color: $form-background;
     .gif_trashbin{
-        --gif-url: url('/img/modal_trashbin_back.gif');
+        --gif-url: url('../img/modal_trashbin_gif.gif');
         background: 
             var(--gif-url) no-repeat center,
-            url(/img/modal_trash_shadow.svg) no-repeat 50% 100%;
+            url(../img/modal_trash_shadow.svg) no-repeat 50% 100%;
         background-size: 90% auto, 60% auto;
         width: 240px;
         position: absolute;
@@ -1019,12 +1019,12 @@ $lg: 1024px;
             left: 19%;
             width: 62%;
             height: 100%;
-            background: url(/img/modal_trashbin_front.png) no-repeat center;
+            background: url(../img/modal_trashbin_front.png) no-repeat center;
             background-size: contain;
         }
     }
     .img_outer_trashball{
-        background: url(/img/modal_outer_trashball.svg) no-repeat center;
+        background: url(../img/modal_outer_trashball.svg) no-repeat center;
         width: 50px;
         height: 50px;
         position: absolute;

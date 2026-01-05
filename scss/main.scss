@@ -8,21 +8,21 @@ body{
     background: 
         radial-gradient(circle at 80% 50%, rgba($brand-30, $alpha: 0.7) 0%, transparent 70%),
         radial-gradient(circle at 10% 10%, rgba(white, $alpha: 0.4) 0%, transparent 70%),
-        url('/img/bg_subtitle.svg') no-repeat 80% 8% / 450px auto;
+        url('../img/bg_subtitle.svg') no-repeat 80% 8% / 450px auto;
         background-color: $background;
     
     @include lg{
         background: 
         radial-gradient(circle at 80% 50%, rgba($brand-30, $alpha: 0.7) 0%, transparent 70%),
         radial-gradient(circle at 10% 10%, rgba(white, $alpha: 0.4) 0%, transparent 70%),
-        url('/img/bg_subtitle.svg') no-repeat 100% 5% / 350px auto;
+        url('../img/bg_subtitle.svg') no-repeat 100% 5% / 350px auto;
         background-color: $background;
     }
     @include sm{
         background: 
         radial-gradient(circle at 80% 40%, rgba($brand-30, $alpha: 0.7) 0%, transparent 70%),
         radial-gradient(circle at 10% 10%, rgba(white, $alpha: 0.4) 0%, transparent 70%),
-        url('/img/bg_subtitle.svg') no-repeat 100% 12% / 200px auto;
+        url('../img/bg_subtitle.svg') no-repeat 100% 12% / 200px auto;
         background-color: $background;
     }
 }
@@ -89,7 +89,7 @@ body{
         perspective: 800px;
         transform-style: preserve-3d;
         transition: transform 0.3s ease-out;
-        background: url('/img/cover_img_form.svg') no-repeat center / contain;
+        background: url('../img/cover_img_form.svg') no-repeat center / contain;
         @include lg{
             width: 40%;
             top: 10%;
@@ -103,7 +103,7 @@ body{
         transform: translate(-50%, -50%) translateZ(30px) rotateX(10deg);
         width: 2rem;
         height: 2rem;
-        background: url('/img/cover_img_cursor.svg') no-repeat center / contain;
+        background: url('../img/cover_img_cursor.svg') no-repeat center / contain;
         @include lg{
             top: 70%;
         }
@@ -119,7 +119,7 @@ body{
         transform: translate(-50%, -50%) translateZ(30px);
         width: 3.5rem;
         height: 3.5rem;
-        background: url('/img/cover_img_file.svg') no-repeat center / contain;
+        background: url('../img/cover_img_file.svg') no-repeat center / contain;
         @include sm{
             width: 2rem;
             height: 2rem;
@@ -132,7 +132,7 @@ body{
         transform: translate(-50%, -50%) translateZ(30px);
         width: 3.5rem;
         height: 3.5rem;
-        background: url('/img/cover_img_pen.svg') no-repeat center / contain;
+        background: url('../img/cover_img_pen.svg') no-repeat center / contain;
         @include sm{
             width: 2rem;
             height: 2rem;
