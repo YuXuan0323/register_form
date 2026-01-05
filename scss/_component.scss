@@ -812,6 +812,7 @@ $lg: 1024px;
 //------------ Upload State -------------------
 .upload-state{
     display: flex;
+    align-items: center;
     gap: 12px;
     padding: 4px 0;
     @include bottom_spacing(16px);
@@ -844,7 +845,7 @@ $lg: 1024px;
             }
         }
         .state-text{
-            @include title-4;
+            @include body-2;
         }
     }
     

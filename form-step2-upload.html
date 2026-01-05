@@ -21,8 +21,8 @@
     <!-- register form -->
     <section class="form_container label_wrapper">
         <span class="label_txt">照片(近6個月2吋脫帽照片)</span>
-        <span class="req_tag" data-check="alert">必填</span>
-        <div class="upload-state" data-status="error">
+        <span class="req_tag" data-check="true">必填</span>
+        <div class="upload-state" data-status="uploading">
             <div class="upload-img"></div>
             <div class="upload_test">
                 <div class="upload_info">
@@ -64,7 +64,7 @@
             <span class="label_txt">目前為高三生在學證明</span>
             <span class="req_tag">必填</span>
         </div>
-        <div class="upload-state" data-status="success">
+        <div class="upload-state" data-status="idle">
             <div class="upload-img"></div>
             <div class="upload_test">
                 <div class="upload_info">
@@ -187,13 +187,13 @@
         </div>
     </section>
     <section class="btn_container">
-        <button class="next_btn" onclick="location.href='/form-step3-confirm.html'">下一頁</button>
-        <button class="upper_btn" onclick="location.href='/index.html'">上一頁</button>
+        <button class="next_btn" onclick="location.href='./form-step3-confirm.html'">下一頁</button>
+        <button class="upper_btn" onclick="location.href='./index.html'">上一頁</button>
     </section>
-    <script src="js/libs/jquery-3.7.1.min.js"></script>
-    <script src="js/libs/jquery.validate.min.js"></script>
-    <script src="js/libs/additional-methods.min.js"></script>
-    <script src="js/libs/gsap.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="./js/libs/jquery-3.7.1.min.js"></script>
+    <script src="./js/libs/jquery.validate.min.js"></script>
+    <script src="./js/libs/additional-methods.min.js"></script>
+    <script src="./js/libs/gsap.min.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 </html>
